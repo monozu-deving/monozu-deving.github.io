@@ -36,6 +36,19 @@ enable_copy_code_button  : true # true, false (default)
 copyright                : # "copyright" name, defaults to site.title
 copyright_url            : # "copyright" URL, defaults to site.url
 comments:
+  provider: "giscus"
+  giscus:
+    repo_id: "R_kgDOPmj6cw"
+    category_name: "General"
+    category_id: "DIC_kwDOPmj6c84CuwfL"
+    discussion_term: "pathname"
+    reactions_enabled: '1'
+    theme: "preferred_color_scheme"
+    strict: 0
+    input_position: "bottom"
+    emit_metadata: '0'
+    lang: "en"
+
   provider               : # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
   disqus:
     shortname            : # https://help.disqus.com/customer/portal/articles/466208-what-s-a-shortname-
@@ -325,18 +338,5 @@ defaults:
       author_profile: true
       read_time: true
       comments: true
-        provider: "giscus"
-        giscus:
-          repo: "monozu-deving/monozu-deving.github.io"
-          repo_id: "R_kgDOPmj6cw"
-          category: "General"
-          category_id: "DIC_kwDOPmj6c84CuwfL"
-          discussion_term: "pathname"
-          strict: 0
-          reactions_enabled: '1'
-          emit_metadata: '0'
-          input_position: "bottom"
-          theme: "preferred_color_scheme"
-          lang: "en"
       share: true
       related: true
