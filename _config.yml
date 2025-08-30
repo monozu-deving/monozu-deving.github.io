@@ -115,11 +115,11 @@ analytics:
 
 # Site Author
 author:
-  name             : "**Monozu-Deving(GiHyeon Kim)**"
+  name             : "Monozu-Deving(GiHyeon Kim)"
   avatar           : "/assets/images/bio-photo.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "🎓 Sejong univ 1st grade \n SW & HW development"
+  bio              : "🎓 Sejong univ 1st grade   SW & HW development"
   location         : "Korea"
-  email            :
+  email            : "monozu.deving@gmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
