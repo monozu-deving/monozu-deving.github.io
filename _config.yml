@@ -17,9 +17,9 @@ future : true
 published: true
 
 # Site Settings
-locale                   : "ko-KR" #"en-US"
+locale                   : "en-US" #"en-US"
 rtl                      : # true, false (default) # turns direction of the page into right to left for RTL languages
-title                    : "Site Title"
+title                    : "Monozu Blog"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "monozu-deving"
@@ -115,9 +115,9 @@ analytics:
 
 # Site Author
 author:
-  name             : "Monozu-Deving(GiHyeon Kim)"
+  name             : "Monozu-Deving\n(GiHyeon Kim)"
   avatar           : "/assets/images/bio-photo.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "🎓 Sejong univ 1st grade   SW & HW development"
+  bio              : "🎓 Sejong univ 1st grade\nSW & HW development"
   location         : "Korea"
   email            : "monozu.deving@gmail.com"
   links:
