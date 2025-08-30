@@ -1,7 +1,7 @@
 ---
 title: "HW — 하드웨어 로그"
 layout: archive
-permalink: /category/hw/
+permalink: /categories/hw/
 author_profile: true
 ---
 

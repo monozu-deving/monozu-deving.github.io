@@ -1,7 +1,7 @@
 ---
 title: "Graphic — 그래픽/디자인"
 layout: archive
-permalink: /category/graphic/
+permalink: /categories/graphic/
 author_profile: true
 ---
 

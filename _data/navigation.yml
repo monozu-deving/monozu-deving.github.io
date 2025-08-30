@@ -1,13 +1,13 @@
 # main links
 main:
   - title: "SW"
-    url: /category/sw/
+    url: /categories/sw/
   - title: "HW"
-    url: /category/hw/
+    url: /categories/hw/
   - title: "Graphic"
-    url: /category/graphic/
+    url: /categories/graphic/
   - title: "Diary"
-    url: /category/diary/
+    url: /categories/diary/
 
 
   #- title: "Quick-Start Guide"

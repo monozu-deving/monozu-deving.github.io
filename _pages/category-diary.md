@@ -1,7 +1,7 @@
 ---
 title: "Diary — 일상 기록"
 layout: archive
-permalink: /category/diary/
+permalink: /categories/diary/
 author_profile: true
 ---
 
