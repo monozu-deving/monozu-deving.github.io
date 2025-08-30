@@ -5,7 +5,11 @@ permalink: /category/graphic/
 author_profile: true
 ---
 
-{% assign list = site.categories.graphic | sort: 'date' | reverse %}
-{% for post in list %}
-  {% include archive-single.html %}
-{% endfor %}
+{% if site.categories.diary %}
+  {% assign list = site.categories.diary | sort: "date" | reverse %}
+  {% for post in list %}
+    {% include archive-single.html %}
+  {% endfor %}
+{% else %}
+  <p>아직 Graphic에 글이 없습니다.</p>
+{% endif %}

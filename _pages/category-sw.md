@@ -13,7 +13,12 @@ author_profile: true
 
 여기에 SW 섹션에 대한 간단한 소개를 적을 수 있어요.
 
-{% assign list = site.categories.sw | sort: 'date' | reverse %}
-{% for post in list %}
-  {% include archive-single.html %}
-{% endfor %}
+{% if site.categories.diary %}
+  {% assign list = site.categories.diary | sort: "date" | reverse %}
+  {% for post in list %}
+    {% include archive-single.html %}
+  {% endfor %}
+{% else %}
+  <p>아직 SW에 글이 없습니다.</p>
+{% endif %}
+
