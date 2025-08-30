@@ -38,15 +38,16 @@ copyright_url            : # "copyright" URL, defaults to site.url
 comments:
   provider: "giscus"
   giscus:
+    repo: "monozu-deving/monozu-deving.github.io"   # 명시 권장
     repo_id: "R_kgDOPmj6cw"
     category_name: "General"
     category_id: "DIC_kwDOPmj6c84CuwfL"
     discussion_term: "pathname"
-    reactions_enabled: '1'
-    theme: "preferred_color_scheme"
     strict: 0
-    input_position: "bottom"
+    reactions_enabled: '1'
     emit_metadata: '0'
+    input_position: "bottom"
+    theme: "preferred_color_scheme"
     lang: "en"
 
   provider               : # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
@@ -339,5 +340,5 @@ defaults:
       author_profile: true
       read_time: true
       comments: true
-      share: true
+      share: false
       related: true
