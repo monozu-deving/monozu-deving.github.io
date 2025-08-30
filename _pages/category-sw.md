@@ -1,8 +1,10 @@
 ---
 title: "SW — 소프트웨어 기록"
 layout: archive
-permalink: /categories/sw/
+permalink: /sw/
 author_profile: true
+redirect_from:
+  - /categories/sw/
 # (선택) 히어로 영역 커스텀
 header:
   overlay_color: "#000"

@@ -10,7 +10,7 @@
     {% for item in include.taxonomies %}
       {% if item[1].size == i %}
         <li>
-          <a href="{{ item[0] | slugify }}">
+          <a href="{{ '/' | append: item[0] | slugify | append: '/' | relative_url }}">
             <strong>{{ item[0] }}</strong> <span class="taxonomy__count">{{ i }}</span>
           </a>
         </li>
@@ -30,7 +30,7 @@
             {% include archive-single.html type=entries_layout %}
           {% endfor %}
         </div>
-        <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
+        <a href="page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
       </section>
     {% endif %}
   {% endfor %}
