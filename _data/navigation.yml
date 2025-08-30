@@ -1,13 +1,14 @@
 # main links
 main:
   - title: "SW"
-    url: /categories/#sw
+    url: /category/sw/
   - title: "HW"
-    url: /categories/#hw
+    url: /category/hw/
   - title: "Graphic"
-    url: /categories/#graphic
+    url: /category/graphic/
   - title: "Diary"
-    url: /categories/#diary
+    url: /category/diary/
+
 
   #- title: "Quick-Start Guide"
   #  url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
