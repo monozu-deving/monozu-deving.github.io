@@ -12,8 +12,6 @@ header:
   overlay_image: /assets/images/bio-photo.jpg
 ---
 
-여기에 SW 섹션에 대한 간단한 소개를 적을 수 있어요.
-
 {% if site.categories['sw'] %}
   {% assign list = site.categories['sw'] | sort: 'date' | reverse %}
   {% for post in list %}

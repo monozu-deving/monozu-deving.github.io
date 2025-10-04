@@ -1,10 +1,10 @@
 ---
-title: "graphic"
+title: "AI — AI 이론 공부 기록"
 layout: archive
-permalink: /graphic/
+permalink: /ai/
 author_profile: true
 redirect_from:
-  - /categories/graphic/
+  - /categories/ai/
 # (선택) 히어로 영역 커스텀
 header:
   overlay_color: "#000"
@@ -12,12 +12,12 @@ header:
   overlay_image: /assets/images/bio-photo.jpg
 ---
 
-{% if site.categories['graphic'] %}
-  {% assign list = site.categories['graphic'] | sort: 'date' | reverse %}
+{% if site.categories['ai'] %}
+  {% assign list = site.categories['ai'] | sort: 'date' | reverse %}
   {% for post in list %}
     {% include archive-single.html %}
   {% endfor %}
 {% else %}
-  <p>아직 graphic에 글이 없습니다.</p>
+  <p>아직 AI에 글이 없습니다.</p>
 {% endif %}
 

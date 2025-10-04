@@ -102,7 +102,7 @@ analytics:
 author:
   name             : "Monozu-Deving"
   avatar           : "/assets/images/bio-photo.jpg" # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "🎓 Sejong univ 1st grade<br>SW & HW development"
+  bio              : "🎓 Sejong univ 1st grade<br>Department of Artificial Intelligence and Robotics"
   location         : "Korea"
   email            : #"monozu.deving@gmail.com"
   links:
@@ -121,9 +121,9 @@ author:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/monozu-deving"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      url: "https://www.instagram.com/airo._.hyeon"
+    # - label: "Instagram"
+    #   icon: "fab fa-fw fa-instagram"
+    #   url: ""
 
 # Site Footer
 footer:
