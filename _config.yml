@@ -313,10 +313,10 @@ defaults:
       share: false
       related: true
   - scope:
-      path: ""
-      type: pages
+      path: "assets/js"
     values:
       layout: single
       author_profile: true
       comments: true
       share: false
+      js: true
