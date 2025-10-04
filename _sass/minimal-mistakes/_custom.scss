@@ -1,85 +1,96 @@
-body {
-  outline: 3px solid red !important;
-}
-/* ===== Glassmorphism for Minimal Mistakes navigation ===== */
+/* ============================================================
+   Enhanced Glassmorphism Navbar - Apple-style look
+   ============================================================ */
 
-/* 머리글을 반투명 + 블러 */
-.masthead {
-    position: sticky; /* 스크롤 시 상단 고정 */
+   .masthead {
+    position: sticky;
     top: 0;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.12); /* 투명도 있는 배경 */
-    -webkit-backdrop-filter: saturate(180%) blur(16px);
-    backdrop-filter: saturate(180%) blur(16px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
-    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+    overflow: hidden; /* 하이라이트 오버플로우 방지 */
+  
+    /* 기본 반투명 베이스 + 블러 */
+    background: rgba(255, 255, 255, 0.08);
+    -webkit-backdrop-filter: blur(22px) saturate(180%);
+    backdrop-filter: blur(22px) saturate(180%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow:
+      inset 0 0 0.5px rgba(255, 255, 255, 0.25),
+      0 8px 28px rgba(0, 0, 0, 0.18);
+  
+    /* 살짝 푸른빛 유리톤 */
+    background-image: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0.05) 40%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
+  
+    /* 상단 반사광 효과 (Apple glass bar highlight) */
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.35) 0%,
+        rgba(255, 255, 255, 0.1) 20%,
+        transparent 60%
+      );
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+  
+    /* 하단 그라디언트로 깊이감 추가 */
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0, 0, 0, 0.08) 100%
+      );
+      pointer-events: none;
+    }
   }
   
-  /* 내부 네비게이션 바는 투명 처리(배경은 masthead가 담당) */
+  /* 내부 네비게이션 - 버튼 유리 칩 스타일 */
   .masthead .greedy-nav {
-    background: transparent;
-    box-shadow: none;
+    background: transparent !important;
+    box-shadow: none !important;
   }
   
-  /* 링크 칩에 유리 느낌의 Pill 효과 */
-  .masthead .greedy-nav .visible-links > li > a,
-  .masthead .greedy-nav .hidden-links .dropdown a {
+  .masthead .greedy-nav .visible-links > li > a {
     border-radius: 999px;
-    padding: 0.45rem 0.8rem;
-    transition: background 180ms ease, transform 120ms ease;
+    padding: 0.45rem 1rem;
+    color: rgba(255, 255, 255, 0.9);
+    transition: background 0.25s ease, transform 0.15s ease;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
   }
   
-  .masthead .greedy-nav .visible-links > li > a:hover,
-  .masthead .greedy-nav .hidden-links .dropdown a:hover {
-    background: rgba(255, 255, 255, 0.22);
+  .masthead .greedy-nav .visible-links > li > a:hover {
+    background: rgba(255, 255, 255, 0.2);
     transform: translateY(-1px);
-    text-decoration: none;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
   }
   
-  /* 검색/토글 같은 아이콘 버튼도 유리 칩처럼 */
-  .masthead .greedy-nav__toggle,
-  .masthead .search__toggle {
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.12);
-    -webkit-backdrop-filter: saturate(180%) blur(16px);
-    backdrop-filter: saturate(180%) blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.28);
-  }
-  
-  /* 다크 모드 대비: 자동 다크 테마 기기에서 유리톤 어둡게 */
+  /* 다크 모드 */
   @media (prefers-color-scheme: dark) {
     .masthead {
-      background: rgba(16, 16, 20, 0.32);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4);
-    }
-  
-    .masthead .greedy-nav .visible-links > li > a,
-    .masthead .greedy-nav .hidden-links .dropdown a {
-      color: #e9e9ee; /* 링크 가독성 향상 */
-    }
-  
-    .masthead .greedy-nav .visible-links > li > a:hover,
-    .masthead .greedy-nav .hidden-links .dropdown a:hover {
-      background: rgba(255, 255, 255, 0.10);
-    }
-  
-    .masthead .greedy-nav__toggle,
-    .masthead .search__toggle {
-      background: rgba(16, 16, 20, 0.36);
-      border-color: rgba(255, 255, 255, 0.12);
-    }
-  }
-  
-  /* iOS/Safari 호환(투명 배경 필요) */
-  .masthead,
-  .masthead .greedy-nav__toggle,
-  .masthead .search__toggle {
-    background-clip: padding-box;
-  }
-  
-  /* 본문과 겹칠 때 여백 보정(옵션) */
-  .page__content {
-    scroll-margin-top: 72px; /* masthead 높이에 맞춰 조정 */
-  }
+      background: rgba(20, 20, 25, 0.3);
+      background-image: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.05) 0%,
+        rgba(255, 255, 255, 0.02) 100%
+      );
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow:
+        inset 0 0 1px rgba(255, 255, 255, 0.08),
+        0 8px 24px rg
   
