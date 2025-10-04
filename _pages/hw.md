@@ -9,7 +9,7 @@ redirect_from:
 header:
   overlay_color: "#000"
   overlay_filter: 0.3
-  overlay_image: /assets/images/bio-photo.jpg
+  overlay_image: /assets/images/hw.png
 ---
 
 {% if site.categories['hw'] %}
