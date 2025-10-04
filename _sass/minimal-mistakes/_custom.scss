@@ -1,0 +1,82 @@
+/* ===== Glassmorphism for Minimal Mistakes navigation ===== */
+
+/* 머리글을 반투명 + 블러 */
+.masthead {
+    position: sticky; /* 스크롤 시 상단 고정 */
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.12); /* 투명도 있는 배경 */
+    -webkit-backdrop-filter: saturate(180%) blur(16px);
+    backdrop-filter: saturate(180%) blur(16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* 내부 네비게이션 바는 투명 처리(배경은 masthead가 담당) */
+  .masthead .greedy-nav {
+    background: transparent;
+    box-shadow: none;
+  }
+  
+  /* 링크 칩에 유리 느낌의 Pill 효과 */
+  .masthead .greedy-nav .visible-links > li > a,
+  .masthead .greedy-nav .hidden-links .dropdown a {
+    border-radius: 999px;
+    padding: 0.45rem 0.8rem;
+    transition: background 180ms ease, transform 120ms ease;
+  }
+  
+  .masthead .greedy-nav .visible-links > li > a:hover,
+  .masthead .greedy-nav .hidden-links .dropdown a:hover {
+    background: rgba(255, 255, 255, 0.22);
+    transform: translateY(-1px);
+    text-decoration: none;
+  }
+  
+  /* 검색/토글 같은 아이콘 버튼도 유리 칩처럼 */
+  .masthead .greedy-nav__toggle,
+  .masthead .search__toggle {
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    -webkit-backdrop-filter: saturate(180%) blur(16px);
+    backdrop-filter: saturate(180%) blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+  }
+  
+  /* 다크 모드 대비: 자동 다크 테마 기기에서 유리톤 어둡게 */
+  @media (prefers-color-scheme: dark) {
+    .masthead {
+      background: rgba(16, 16, 20, 0.32);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.4);
+    }
+  
+    .masthead .greedy-nav .visible-links > li > a,
+    .masthead .greedy-nav .hidden-links .dropdown a {
+      color: #e9e9ee; /* 링크 가독성 향상 */
+    }
+  
+    .masthead .greedy-nav .visible-links > li > a:hover,
+    .masthead .greedy-nav .hidden-links .dropdown a:hover {
+      background: rgba(255, 255, 255, 0.10);
+    }
+  
+    .masthead .greedy-nav__toggle,
+    .masthead .search__toggle {
+      background: rgba(16, 16, 20, 0.36);
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+  }
+  
+  /* iOS/Safari 호환(투명 배경 필요) */
+  .masthead,
+  .masthead .greedy-nav__toggle,
+  .masthead .search__toggle {
+    background-clip: padding-box;
+  }
+  
+  /* 본문과 겹칠 때 여백 보정(옵션) */
+  .page__content {
+    scroll-margin-top: 72px; /* masthead 높이에 맞춰 조정 */
+  }
+  
