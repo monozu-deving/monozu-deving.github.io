@@ -2,25 +2,21 @@ function bindLiquidGlass() {
     document.querySelectorAll(".glass-btn").forEach((btn) => {
       btn.addEventListener("mousemove", (e) => {
         const rect = btn.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        btn.style.setProperty("--x", `${x}px`);
-        btn.style.setProperty("--y", `${y}px`);
+        // 상대 좌표를 0~100%로 환산
+        const rx = ((e.clientX - rect.left) / rect.width) * 100;
+        const ry = ((e.clientY - rect.top) / rect.height) * 100;
+        btn.style.setProperty("--rx", `${rx}%`);
+        btn.style.setProperty("--ry", `${ry}%`);
       });
       btn.addEventListener("mouseleave", () => {
-        btn.style.setProperty("--x", `50%`);
-        btn.style.setProperty("--y", `40%`);
+        btn.style.setProperty("--rx", "50%");
+        btn.style.setProperty("--ry", "40%");
       });
     });
   }
   
-  /* 테마 JS가 DOM을 재구성한 후에도 동작하게 보장 */
-  if (document.readyState === "loading") {
+  // DOM 로드 후 즉시 바인딩
+  if (document.readyState === "loading")
     document.addEventListener("DOMContentLoaded", bindLiquidGlass);
-  } else {
-    bindLiquidGlass();
-  }
-  
-  /* Greedy-nav가 AJAX 로드 시 재호출 대비 */
-  window.addEventListener("load", bindLiquidGlass);
+  else bindLiquidGlass();
   
