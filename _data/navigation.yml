@@ -1,15 +1,16 @@
 # main links
 main:
-  - title: "AI"
+  - title: "<a class='glass-btn' href='/ai/'>AI</a>"
     url: /ai/
-  - title: "SW"
+  - title: "<a class='glass-btn' href='/sw/'>SW</a>"
     url: /sw/
-  - title: "HW"
+  - title: "<a class='glass-btn' href='/hw/'>HW</a>"
     url: /hw/
-  - title: "Graphic"
+  - title: "<a class='glass-btn' href='/graphic/'>Graphic</a>"
     url: /graphic/
-  - title: "Diary"
+  - title: "<a class='glass-btn' href='/diary/'>Diary</a>"
     url: /diary/
+
 
 
   #- title: "Quick-Start Guide"
