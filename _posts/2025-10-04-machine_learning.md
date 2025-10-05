@@ -1,5 +1,5 @@
 ---
-title: "인공지능이란?"
+title: "ML이란?"
 layout: single
 toc: true              # ✅ 목차 활성화
 toc_label: "📑 목차"   # (선택) 목차 제목
@@ -10,9 +10,8 @@ categories: ['ai']
 
 ---
 
-
-# 인공지능의 분류
-일반적으로 인공지능을 분류할 때는 크게 지도 학습(Supervised Learning), 비지도 학습(Unsupervised Learning), 강화 학습(Reinforcement Learning)이 있다고 한다. 추가적으로 Imitation Learning(모방 학습)이라는 것도 존재하긴 하지만 개념이 혼동될 수 있으니 나중에 추가로 post를 만들어서 설명하도록 하겠다👍
+# Machine Learning이란
+일반적으로 인공지능을 분류할 때는 크게 지도 학습(Supervised Learning), 비지도 학습(Unsupervised Learning), 강화 학습(Reinforcement Learning)이 있다고 한다. 이들이 Machine Learning에 속하며 이를 추가적으로 Imitation Learning(모방 학습)이라는 것도 존재하긴 하지만 개념이 혼동될 수 있으니 나중에 추가로 post를 만들어서 설명하도록 하겠다👍
 
 일반적으로는 지도 학습과 비지도 학습을 헷갈리는 경우가 존재하고(나만 그런가) 강화 학습은 별도의 개념이라서 쉽게 헷갈리지 않는 것 같다.
 
@@ -58,7 +57,7 @@ Clustering과 K-means, PCA, t-SNE, AutoEncoder 등이 이에 해당한다.(자�
 결과적으로 Machine Learning이라는 것에 Supervised Learning과 Unsupervised Learning, Reinforcement Learning이 속하는 것으로 이들은 아래의 표와 같은 차이를 가진다.  
 <table style="border-collapse: collapse; width: 100%; border: 1px solid #ccc; text-align: center;">
   <thead>
-    <tr style="background-color: #f8f8f8;">
+    <tr style="background-color: #000080;">
       <th style="border: 1px solid #ccc; padding: 8px;">구분</th>
       <th style="border: 1px solid #ccc; padding: 8px;">지도학습 (Supervised Learning)</th>
       <th style="border: 1px solid #ccc; padding: 8px;">비지도학습 (Unsupervised Learning)</th>
