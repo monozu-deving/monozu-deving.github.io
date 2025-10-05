@@ -1,9 +1,13 @@
 ---
 title: "인공지능이란?"
 layout: single
+toc: true              # ✅ 목차 활성화
+toc_label: "📑 목차"   # (선택) 목차 제목
+toc_sticky: true       # ✅ 스크롤 시 오른쪽 고정
 comments: true
 author_profile: true
 categories: ['ai']
+
 ---
 
 
@@ -52,19 +56,89 @@ Clustering과 K-means, PCA, t-SNE, AutoEncoder 등이 이에 해당한다.(자�
 
 ## 결론
 결과적으로 Machine Learning이라는 것에 Supervised Learning과 Unsupervised Learning, Reinforcement Learning이 속하는 것으로 이들은 아래의 표와 같은 차이를 가진다.  
-| 구분            | **지도학습 (Supervised Learning)**     | **비지도학습 (Unsupervised Learning)**           | **강화학습 (Reinforcement Learning)**  |
-| ------------- | ---------------------------------- | ------------------------------------------- | ---------------------------------- |
-| **핵심 개념**     | 정답(Label)이 주어진 데이터를 이용해 학습         | 정답 없이 데이터의 패턴이나 구조를 학습                      | 환경과 상호작용하며 보상(Reward)을 통해 학습       |
-| **입력 데이터 형태** | (입력, 정답) 쌍 존재 → (x, y)             | 입력만 존재 → x                                  | 상태(State), 행동(Action), 보상(Reward)  |
-| **학습 목표**     | 주어진 입력에 대해 올바른 정답을 예측              | 데이터의 숨겨진 구조나 분포를 파악                         | 보상을 최대화하는 최적의 행동 전략(policy) 학습     |
-| **학습 방식**     | 예측 결과와 실제 정답의 오차를 최소화              | 데이터 간 유사성, 거리, 분산 등을 기준으로 구조 학습             | 시행착오(trial & error)를 통해 장기적 보상 극대화 |
-| **출력 결과**     | 분류(Classification), 회귀(Regression) | 군집화(Clustering), 차원 축소(Dimension Reduction) | 행동 정책(Policy), 최적의 전략              |
-| **정답(Label)** | ✅ 존재                               | ❌ 없음                                        | ⚙️ 보상(Reward)으로 대체                 |
-| **피드백 형태**    | 직접적(Direct Feedback) — 정답과 비교 가능   | 없음 (내적 구조를 통해 학습)                           | 간접적(Indirect Feedback) — 보상으로 피드백  |
-| **대표 알고리즘**   | 선형회귀, 로지스틱회귀, SVM, CNN, LSTM       | K-means, PCA, Autoencoder, SOM              | Q-learning, SARSA, DQN, PPO        |
-| **데이터 필요량**   | 중간 (라벨 필요)                         | 많을수록 좋음                                     | 환경 내 다수의 시도 필요                     |
-| **응용 예시**     | 스팸 메일 분류, 이미지 인식, 음성 인식            | 고객군 분류, 차원 축소, 특징 추출                        | 자율주행, 게임 AI, 로봇 제어                 |
-| **장점**        | 정확하고 명확한 목표 설정 가능                  | 숨겨진 패턴을 자동으로 발견 가능                          | 실시간으로 의사결정 전략을 최적화                 |
-| **단점**        | 라벨링 비용 높음                          | 결과 해석 어려움                                   | 학습 불안정, 시도 시간 길음                   |
+<table style="border-collapse: collapse; width: 100%; border: 1px solid #ccc; text-align: center;">
+  <thead>
+    <tr style="background-color: #f8f8f8;">
+      <th style="border: 1px solid #ccc; padding: 8px;">구분</th>
+      <th style="border: 1px solid #ccc; padding: 8px;">지도학습 (Supervised Learning)</th>
+      <th style="border: 1px solid #ccc; padding: 8px;">비지도학습 (Unsupervised Learning)</th>
+      <th style="border: 1px solid #ccc; padding: 8px;">강화학습 (Reinforcement Learning)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;"><b>핵심 개념</b></td>
+      <td style="border: 1px solid #ccc; padding: 8px;">정답(Label)이 주어진 데이터를 이용해 학습</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">정답 없이 데이터의 패턴이나 구조를 학습</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">환경과 상호작용하며 보상(Reward)을 통해 학습</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;"><b>입력 데이터 형태</b></td>
+      <td style="border: 1px solid #ccc; padding: 8px;">(입력, 정답) 쌍 존재 → (x, y)</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">입력만 존재 → x</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">상태(State), 행동(Action), 보상(Reward)</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;"><b>학습 목표</b></td>
+      <td style="border: 1px solid #ccc; padding: 8px;">주어진 입력에 대해 올바른 정답을 예측</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">데이터의 숨겨진 구조나 분포를 파악</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">보상을 최대화하는 최적의 행동 전략(policy) 학습</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;"><b>학습 방식</b></td>
+      <td style="border: 1px solid #ccc; padding: 8px;">예측 결과와 실제 정답의 오차를 최소화</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">데이터 간 유사성, 거리, 분산 등을 기준으로 구조 학습</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">시행착오(trial & error)를 통해 장기적 보상 극대화</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;"><b>출력 결과</b></td>
+      <td style="border: 1px solid #ccc; padding: 8px;">분류(Classification), 회귀(Regression)</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">군집화(Clustering), 차원 축소(Dimension Reduction)</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">행동 정책(Policy), 최적의 전략</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;"><b>정답(Label)</b></td>
+      <td style="border: 1px solid #ccc; padding: 8px;">✅ 존재</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">❌ 없음</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">⚙️ 보상(Reward)으로 대체</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;"><b>피드백 형태</b></td>
+      <td style="border: 1px solid #ccc; padding: 8px;">직접적(Direct Feedback) — 정답과 비교 가능</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">없음 (내적 구조를 통해 학습)</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">간접적(Indirect Feedback) — 보상으로 피드백</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;"><b>대표 알고리즘</b></td>
+      <td style="border: 1px solid #ccc; padding: 8px;">선형회귀, 로지스틱회귀, SVM, CNN, LSTM</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">K-means, PCA, Autoencoder, SOM</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">Q-learning, SARSA, DQN, PPO</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;"><b>데이터 필요량</b></td>
+      <td style="border: 1px solid #ccc; padding: 8px;">중간 (라벨 필요)</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">많을수록 좋음</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">환경 내 다수의 시도 필요</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;"><b>응용 예시</b></td>
+      <td style="border: 1px solid #ccc; padding: 8px;">스팸 메일 분류, 이미지 인식, 음성 인식</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">고객군 분류, 차원 축소, 특징 추출</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">자율주행, 게임 AI, 로봇 제어</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;"><b>장점</b></td>
+      <td style="border: 1px solid #ccc; padding: 8px;">정확하고 명확한 목표 설정 가능</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">숨겨진 패턴을 자동으로 발견 가능</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">실시간으로 의사결정 전략을 최적화</td>
+    </tr>
+    <tr>
+      <td style="border: 1px solid #ccc; padding: 8px;"><b>단점</b></td>
+      <td style="border: 1px solid #ccc; padding: 8px;">라벨링 비용 높음</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">결과 해석 어려움</td>
+      <td style="border: 1px solid #ccc; padding: 8px;">학습 불안정, 시도 시간 길음</td>
+    </tr>
+  </tbody>
+</table>
 
 ### 틀린 내용이나 궁금한 내용이 있으면 아래 댓글로 남겨주세요😎
