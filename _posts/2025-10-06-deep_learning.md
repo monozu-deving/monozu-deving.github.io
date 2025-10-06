@@ -53,6 +53,7 @@ $x_{1}$에서의 값이 1이거나, $x_{2}$에서의 값이 1이면 1이 나오�
 $$
 \text{Regression Task} \quad \text{MSE} = \frac{1}{N}\sum_{i=1}^{N}\sum_{d=1}^{D}(y_{i}^{(d)} - \hat{y}_{i}^{(d)})^{2}
 $$  
+  
 $$
 \text{Classification Task} \quad \text{CE} = -\frac{1}{N}\sum_{i=1}^{N}\sum_{d=1}^{D}y_{i}^{(d)}\log{\hat{y}_{i}^{(d)}}
 $$  
