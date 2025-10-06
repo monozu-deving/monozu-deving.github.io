@@ -50,8 +50,12 @@ $x_{1}$에서의 값이 1이거나, $x_{2}$에서의 값이 1이면 1이 나오�
 4. 오차를 줄이는 방향으로 파라미터 w를 갱신한다  
 5. 네트워크의 예측이 충분히 정확해질 때까지 2~4 단계를 반복하며 가중치를 수정한다  
 1번과 2번은 순전파(Forward pass, 또는 Feedforward), 3~5번은 역전파(Backward pass, 또는 Backpropagation) 과정에 해당한다. 이 과정에서는 가중치를 조절하면서 결과적으로 오차인 loss 값을 줄이는 것을 목표로 하고 이를 위해서 회귀에서는 MSE(Mean Squared Error), 분류에서는 CE(Cross Entropy)를 사용한다.  
-$$\text{Regression Task} \quad \text{MSE} = \frac{1}{N}\sum_{i=1}^{N}\sum_{d=1}^{D}(y_{i}^{(d)} - \hat{y}_{i}^{(d)})^{2} \\
-\text{Classification Task} \quad \text{CE} = -\frac{1}{N}\sum_{i=1}^{N}\sum_{d=1}^{D}y_{i}^{(d)}\log{\hat{y}_{i}^{(d)}}$$  
+$$
+\text{Regression Task} \quad \text{MSE} = \frac{1}{N}\sum_{i=1}^{N}\sum_{d=1}^{D}(y_{i}^{(d)} - \hat{y}_{i}^{(d)})^{2}
+$$  
+$$
+\text{Classification Task} \quad \text{CE} = -\frac{1}{N}\sum_{i=1}^{N}\sum_{d=1}^{D}y_{i}^{(d)}\log{\hat{y}_{i}^{(d)}}
+$$  
 
 ## Backpropagation
 <figure align="center">
