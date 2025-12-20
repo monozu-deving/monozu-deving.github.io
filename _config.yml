@@ -144,9 +144,12 @@ footer:
       icon: "fab fa-fw fa-bitbucket"
       # url:
     # - label: "Instagram"
-    #   icon: "fab fa-fw fa-instagram"
-    #   url: ""
+      icon: "fab fa-fw fa-instagram"
+      # url: ""
   since: "2025"
+
+footer_scripts:
+  - /assets/js/liquid-glass.js
 
 
 # Reading Files

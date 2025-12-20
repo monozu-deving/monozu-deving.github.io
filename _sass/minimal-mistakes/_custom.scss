@@ -1,63 +1,145 @@
 /* =========================================================
    Apple-like Liquid Reflection Buttons (JS-driven)
    ========================================================= */
-   .glass-btn {
-    position: relative;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.35rem 1.1rem;
-    border-radius: 2rem;
-    font-size: 0.9rem;
-    color: rgba(245,245,255,0.95);
-    text-decoration: none;
-    background: rgba(255,255,255,0.07);
-    border: 1px solid rgba(255,255,255,0.15);
-    -webkit-backdrop-filter: blur(40px) saturate(180%);
-    backdrop-filter: blur(40px) saturate(180%);
-    box-shadow:
-      inset 1px 1px 3px rgba(255,255,255,0.3),
-      inset -1px -1px 4px rgba(0,0,0,0.25),
-      0 3px 10px rgba(0,0,0,0.35);
-    overflow: hidden;
-    transition: transform .25s ease, box-shadow .25s ease;
-  }
-  
-  /* 반사광 레이어 */
-  .glass-btn::after {
-    content:"";
-    position:absolute;
-    inset:0;
-    border-radius:inherit;
-    background:
-      radial-gradient(
-        circle at var(--rx,50%) var(--ry,40%),
-        rgba(150,190,255,0.45) 0%,
-        rgba(80,120,255,0.2) 25%,
-        transparent 70%
-      );
-    filter:blur(35px);
-    opacity:.8;
-    transition:background .1s ease;
-    pointer-events:none;
-  }
-  
-  /* 살짝 부각 hover */
-  .glass-btn:hover {
-    transform:translateY(-1px);
-    box-shadow:
-      inset 1px 1px 3px rgba(255,255,255,0.4),
-      0 0 18px rgba(120,160,255,0.45),
-      0 6px 16px rgba(0,0,0,0.4);
-  }
+.glass-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.4rem;
+  border-radius: 2rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(25px) saturate(160%);
+  backdrop-filter: blur(25px) saturate(160%);
+  box-shadow:
+    0 4px 24px -1px rgba(0, 0, 0, 0.2),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+}
 
-  /* =======================================================
+/* High-end Reflection / Liquid Effect */
+.glass-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at var(--rx, 50%) var(--ry, 50%),
+      rgba(255, 255, 255, 0.15) 0%,
+      rgba(255, 255, 255, 0.05) 40%,
+      transparent 80%);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+/* Real-time Liquid Movement Layer */
+.glass-btn::after {
+  content: "";
+  position: absolute;
+  top: var(--ry, 50%);
+  left: var(--rx, 50%);
+  width: 140%;
+  height: 140%;
+  background: radial-gradient(circle at center,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0.04) 30%,
+      transparent 60%);
+  transform: translate(-50%, -50%);
+  filter: blur(15px);
+  opacity: 0.8;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  transition: transform 0.15s cubic-bezier(0.1, 0.45, 0.1, 1);
+}
+
+.glass-btn:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.25);
+  box-shadow:
+    0 10px 30px -5px rgba(0, 0, 0, 0.3),
+    inset 0 1px 2px rgba(255, 255, 255, 0.4);
+}
+
+.glass-btn:hover::before {
+  opacity: 1;
+}
+
+/* Inner Glow for Realism */
+.glass-btn::after {
+  background: radial-gradient(circle at var(--rx, 50%) var(--ry, 50%),
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(255, 255, 255, 0.1) 20%,
+      transparent 50%);
+}
+
+/* =======================================================
    Remove default nav underline from Minimal Mistakes
    ======================================================= */
 
 /* 모든 네비게이션 a::before 제거 */
+/* =======================================================
+   Home / Archive Styling (Modernized)
+   ======================================================= */
+.layout--home .archive__subtitle {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+.entries-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.list__item {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.list__item:hover {
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateX(10px);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.archive__item-title {
+  margin-top: 0 !important;
+  font-size: 1.4rem !important;
+}
+
+.archive__item-title a {
+  color: rgba(255, 255, 255, 0.9) !important;
+  text-decoration: none !important;
+}
+
+.archive__item-excerpt {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Remove default sidebar in home if preferred, but user didn't ask. 
+   Keeping it but ensuring it doesn't clash. */
+
+/* 모든 네비게이션 a::before 제거 */
 .masthead .greedy-nav a::before,
-.masthead .greedy-nav .visible-links > li > a::before,
+.masthead .greedy-nav .visible-links>li>a::before,
 .masthead .greedy-nav .hidden-links a::before {
   content: none !important;
   display: none !important;
