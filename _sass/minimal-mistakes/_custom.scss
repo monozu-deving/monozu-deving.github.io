@@ -1,12 +1,44 @@
 /* =========================================================
      Apple-style Liquid Gooey Navigation
      ========================================================= */
-.greedy-nav {
+.visible-links,
+.hidden-links {
   filter: url('#gooey');
+  display: flex !important;
+  align-items: center;
+  padding: 1rem 0 !important;
+  overflow: visible !important;
+}
+
+/* Specific fix for hidden links (mobile dropdown) */
+.hidden-links.hidden {
+  display: none !important;
+}
+
+.hidden-links {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: rgba(20, 20, 25, 0.85);
+  backdrop-filter: blur(20px);
+  border-radius: 1rem;
+  padding: 1rem !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 100;
+}
+
+.greedy-nav {
   position: relative;
   overflow: visible !important;
-  padding: 1.5rem 0 !important;
-  /* Space for liquid stretching */
+}
+
+/* Increase masthead height/overflow to prevent clipping */
+.masthead,
+.masthead__inner-wrap,
+.masthead__menu {
+  overflow: visible !important;
 }
 
 .glass-btn {
@@ -22,7 +54,6 @@
   color: rgba(255, 255, 255, 0.95);
   text-decoration: none;
   background: rgba(255, 255, 255, 0.04);
-  /* Softer Glass Edge */
   border: 0.5px solid rgba(255, 255, 255, 0.12);
   box-shadow:
     0 4px 15px rgba(0, 0, 0, 0.1),
@@ -32,24 +63,24 @@
   cursor: pointer;
   z-index: 1;
   overflow: visible;
-  /* Prevents liquid clipping */
+  white-space: nowrap;
 }
 
-/* The Refractive Highlight (Sharper) */
+/* The Refractive Highlight */
 .glass-btn::after {
   content: "";
   position: absolute;
   top: var(--ry, 50%);
   left: var(--rx, 50%);
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   background: radial-gradient(circle at center,
       rgba(255, 255, 255, 0.35) 0%,
       rgba(255, 255, 255, 0.08) 30%,
       transparent 70%);
   border-radius: 50%;
   transform: translate(-50%, -50%) scale(var(--rs, 0));
-  filter: blur(6px);
+  filter: blur(5px);
   pointer-events: none;
   transition: transform 0.25s ease-out;
   z-index: -1;
@@ -63,19 +94,6 @@
 
 .glass-btn:hover::after {
   --rs: 1.3;
-}
-
-/* Sharp Top Light / Reflection */
-.glass-btn::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 10%;
-  right: 10%;
-  height: 1px;
-  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.4), transparent);
-  pointer-events: none;
-  z-index: 2;
 }
 
 /* =======================================================
@@ -104,13 +122,45 @@
   max-width: 900px;
 }
 
+/* Mobile Toggle Style */
+.greedy-nav__toggle {
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-radius: 50% !important;
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  border: 0.5px solid rgba(255, 255, 255, 0.1) !important;
+  color: #fff !important;
+  transition: all 0.3s ease;
+  z-index: 50;
+}
+
+.greedy-nav__toggle:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.navicon {
+  background: #fff !important;
+}
+
+.navicon::before,
+.navicon::after {
+  background: #fff !important;
+}
+
 .list__item {
   background: rgba(255, 255, 255, 0.02);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 1.5rem;
-  padding: 2rem;
+  padding: 1.5rem 2rem;
+  /* Reduced vertical padding */
   transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   backdrop-filter: blur(10px);
+  margin-bottom: 0.5rem;
+  /* Explicit margin */
 }
 
 .list__item:hover {
@@ -131,4 +181,14 @@
 
 .masthead .greedy-nav a {
   text-decoration: none !important;
+}
+
+/* Search Button Style Improvement */
+.search__toggle {
+  color: rgba(255, 255, 255, 0.6) !important;
+  transition: color 0.3s ease;
+}
+
+.search__toggle:hover {
+  color: #fff !important;
 }
