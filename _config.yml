@@ -149,6 +149,7 @@ footer:
   since: "2025"
 
 footer_scripts:
+  - /assets/js/main.min.js
   - /assets/js/liquid-glass.js
 
 
