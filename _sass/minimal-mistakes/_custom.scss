@@ -21,6 +21,7 @@
   justify-content: space-between;
   width: 100%;
   overflow: visible !important;
+  background: transparent !important;
 }
 
 .visible-links {
@@ -32,6 +33,16 @@
 
   @media (max-width: 768px) {
     display: none !important;
+  }
+
+  /* CRITICAL: Override theme's blue underline on hover */
+  a::before {
+    display: none !important;
+    content: none !important;
+    height: 0 !important;
+    width: 0 !important;
+    background: transparent !important;
+    transform: none !important;
   }
 }
 
@@ -64,10 +75,19 @@ a:focus,
 .greedy-nav .active a::after,
 .current a::after,
 .greedy-nav .active::after,
-.current::after {
+.current::after,
+.masthead__menu-item--active a::before,
+.masthead__menu-item.active a::before,
+.greedy-nav .active a::before,
+.current a::before,
+.greedy-nav .active::before,
+.current::before {
   display: none !important;
   content: none !important;
   border: none !important;
+  background: transparent !important;
+  height: 0 !important;
+  width: 0 !important;
 }
 
 /* GLASS MASTHEAD BUTTONS (No Blue Underline) */
@@ -83,10 +103,10 @@ a:focus,
   font-weight: 500;
   color: rgba(255, 255, 255, 0.85) !important;
   text-decoration: none !important;
-  background: rgba(255, 255, 255, 0.03);
-  border: 0.5px solid rgba(255, 255, 255, 0.1) !important;
-  box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px) saturate(140%);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   cursor: pointer;
   z-index: 10;
@@ -95,62 +115,61 @@ a:focus,
 }
 
 .masthead__menu-item a:hover {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.25) !important;
   color: #fff !important;
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  /* Explicitly remove any blue bottom border from theme */
-  border-bottom-color: rgba(255, 255, 255, 0.25) !important;
 }
 
-/* No spotlight or pseudo-element underlines */
+/* Completely remove ALL pseudo-element underlines */
 .masthead__menu-item a::after,
-.masthead__menu-item a::before {
+.masthead__menu-item a::before,
+.greedy-nav .visible-links a::before,
+.greedy-nav .visible-links a::after {
   display: none !important;
   content: none !important;
+  height: 0 !important;
+  width: 0 !important;
+  background: transparent !important;
+  transform: none !important;
 }
 
-/* NEW: GLASS POST CARDS (Archive Items) */
+/* GLASS POST CARDS (Clean, No Glow) */
 .archive__item {
   position: relative;
-  background: rgba(255, 255, 255, 0.035) !important;
-  backdrop-filter: blur(12px) saturate(160%) !important;
-  -webkit-backdrop-filter: blur(12px) saturate(160%) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  backdrop-filter: blur(12px) saturate(150%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(150%) !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-radius: 1.5rem !important;
-  padding: 2.5rem !important;
-  margin-bottom: 2.5rem !important;
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1) !important;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+  border-radius: 1.25rem !important;
+  padding: 1.8rem 2rem !important;
+  margin-bottom: 1.5rem !important;
+  transition: all 0.3s ease !important;
 }
 
 .archive__item:hover {
-  background: rgba(255, 255, 255, 0.06) !important;
+  background: rgba(255, 255, 255, 0.07) !important;
   border-color: rgba(255, 255, 255, 0.2) !important;
-  transform: translateY(-5px) !important;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25) !important;
+  transform: translateY(-3px) !important;
 }
 
 .archive__item-title {
   margin-top: 0 !important;
-  font-size: 1.6rem !important;
-  font-weight: 800 !important;
+  margin-bottom: 0.5rem !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
 }
 
 .archive__item-title a {
   color: #fff !important;
   text-decoration: none !important;
-  background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.7));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
 
 .archive__item-excerpt {
   color: rgba(255, 255, 255, 0.6) !important;
-  font-size: 0.95rem !important;
-  line-height: 1.6 !important;
+  font-size: 0.9rem !important;
+  line-height: 1.5 !important;
+  margin-bottom: 0 !important;
 }
 
 /* New Glass Mobile Menu Layer */
@@ -160,7 +179,7 @@ a:focus,
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(10, 10, 15, 0.8) !important;
+  background: rgba(10, 10, 15, 0.85) !important;
   backdrop-filter: blur(50px) saturate(200%) !important;
   -webkit-backdrop-filter: blur(50px) saturate(200%) !important;
   z-index: 9999 !important;
@@ -198,17 +217,13 @@ a:focus,
 .mobile-links a {
   font-size: 2rem !important;
   font-weight: 700;
-  color: #fff;
+  color: #fff !important;
   text-decoration: none !important;
-  background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.6));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
   transition: all 0.3s ease;
 }
 
 .mobile-links a:hover {
-  transform: scale(1.05);
+  opacity: 0.8;
 }
 
 .menu-close__btn {
@@ -225,13 +240,13 @@ a:focus,
 
 .mobile-menu__toggle {
   display: none;
-  background: rgba(255, 255, 255, 0.1) !important;
-  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
   color: #fff !important;
   padding: 0.8rem !important;
   border-radius: 50% !important;
-  width: 3.2rem !important;
-  height: 3.2rem !important;
+  width: 3rem !important;
+  height: 3rem !important;
   cursor: pointer;
   transition: all 0.3s ease;
 
