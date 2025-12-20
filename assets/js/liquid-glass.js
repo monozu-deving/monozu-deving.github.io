@@ -54,10 +54,48 @@
     });
   }
 
+  function bindSearch() {
+    const searchToggle = document.querySelector('.search__toggle');
+    const searchContent = document.querySelector('.search-content');
+    const searchInput = document.querySelector('.search-input');
+
+    if (searchToggle && searchContent) {
+      // Toggle search overlay
+      searchToggle.addEventListener('click', () => {
+        searchContent.classList.toggle('is-visible');
+        if (searchContent.classList.contains('is-visible')) {
+          document.body.style.overflow = 'hidden';
+          if (searchInput) {
+            setTimeout(() => searchInput.focus(), 100);
+          }
+        } else {
+          document.body.style.overflow = '';
+        }
+      });
+
+      // Close on Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && searchContent.classList.contains('is-visible')) {
+          searchContent.classList.remove('is-visible');
+          document.body.style.overflow = '';
+        }
+      });
+
+      // Close on click outside search form
+      searchContent.addEventListener('click', (e) => {
+        if (e.target === searchContent) {
+          searchContent.classList.remove('is-visible');
+          document.body.style.overflow = '';
+        }
+      });
+    }
+  }
+
   // Initialize
   document.addEventListener('DOMContentLoaded', () => {
     bindSpotlight();
     bindMobileMenu();
+    bindSearch();
   });
 
   // Re-bind when mutations occur
