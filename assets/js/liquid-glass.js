@@ -61,7 +61,9 @@
 
     if (searchToggle && spotlightOverlay) {
       // Toggle search overlay
-      searchToggle.addEventListener('click', () => {
+      searchToggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
         spotlightOverlay.classList.toggle('is--visible');
         if (spotlightOverlay.classList.contains('is--visible')) {
           document.body.style.overflow = 'hidden';
