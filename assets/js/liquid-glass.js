@@ -58,47 +58,66 @@
     const searchToggle = document.querySelector('.search__toggle');
     const spotlightOverlay = document.getElementById('spotlight-overlay');
     const spotlightInput = document.querySelector('.spotlight-input');
+    const initialContent = document.querySelector('.initial-content');
+
+    // Helper function to open search
+    function openSearch() {
+      if (spotlightOverlay) {
+        spotlightOverlay.classList.add('is--visible');
+        document.body.style.overflow = 'hidden';
+        // Ensure initial content stays visible behind blur
+        if (initialContent) {
+          initialContent.style.display = '';
+          initialContent.style.visibility = 'visible';
+        }
+        if (spotlightInput) {
+          setTimeout(() => spotlightInput.focus(), 100);
+        }
+      }
+    }
+
+    // Helper function to close search
+    function closeSearch() {
+      if (spotlightOverlay) {
+        spotlightOverlay.classList.remove('is--visible');
+        document.body.style.overflow = '';
+        // Restore initial content visibility
+        if (initialContent) {
+          initialContent.style.display = '';
+          initialContent.style.visibility = 'visible';
+        }
+        // Clear search results
+        const resultsDiv = document.getElementById('results');
+        if (resultsDiv) resultsDiv.innerHTML = '';
+        if (spotlightInput) spotlightInput.value = '';
+      }
+    }
 
     if (searchToggle && spotlightOverlay) {
       // Toggle search overlay
       searchToggle.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
-        spotlightOverlay.classList.toggle('is--visible');
         if (spotlightOverlay.classList.contains('is--visible')) {
-          document.body.style.overflow = 'hidden';
-          if (spotlightInput) {
-            setTimeout(() => spotlightInput.focus(), 100);
-          }
+          closeSearch();
         } else {
-          document.body.style.overflow = '';
+          openSearch();
         }
       });
 
       // Close on Escape key
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && spotlightOverlay.classList.contains('is--visible')) {
-          spotlightOverlay.classList.remove('is--visible');
-          document.body.style.overflow = '';
-          // Clear search results when closing
-          const resultsDiv = document.getElementById('results');
-          if (resultsDiv) resultsDiv.innerHTML = '';
-          if (spotlightInput) spotlightInput.value = '';
+          closeSearch();
         }
       });
 
       // Close on click outside spotlight container
       spotlightOverlay.addEventListener('click', (e) => {
-        // Only close if clicking directly on the overlay background
         if (e.target === spotlightOverlay) {
           e.preventDefault();
           e.stopPropagation();
-          spotlightOverlay.classList.remove('is--visible');
-          document.body.style.overflow = '';
-          // Clear search results when closing
-          const resultsDiv = document.getElementById('results');
-          if (resultsDiv) resultsDiv.innerHTML = '';
-          if (spotlightInput) spotlightInput.value = '';
+          closeSearch();
         }
       });
 
@@ -115,13 +134,7 @@
     document.addEventListener('keydown', (e) => {
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
-        if (spotlightOverlay) {
-          spotlightOverlay.classList.add('is--visible');
-          document.body.style.overflow = 'hidden';
-          if (spotlightInput) {
-            setTimeout(() => spotlightInput.focus(), 100);
-          }
-        }
+        openSearch();
       }
     });
   }
