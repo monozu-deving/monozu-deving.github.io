@@ -43,14 +43,25 @@
   gap: 0.5rem;
 }
 
-/* Global Focus Reset (Remove Blue Outlines) */
+/* Global Focus & Active State Reset (Remove Blue Outlines/Bars) */
 *:focus,
 *:active,
 button:focus,
-a:focus {
+a:focus,
+.masthead__menu-item--active a,
+.masthead__menu-item.active a,
+.greedy-nav .active,
+.current {
   outline: none !important;
   box-shadow: none !important;
+  border-bottom: none !important;
   -webkit-tap-highlight-color: transparent !important;
+}
+
+.masthead__menu-item--active a::after,
+.masthead__menu-item.active a::after,
+.greedy-nav .active::after {
+  display: none !important;
 }
 
 /* New Glass Mobile Menu Layer */
@@ -60,11 +71,11 @@ a:focus {
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(10, 10, 15, 0.85);
-  backdrop-filter: blur(40px) saturate(180%);
-  z-index: 9999;
+  background: rgba(10, 10, 15, 0.75) !important;
+  backdrop-filter: blur(50px) saturate(200%) !important;
+  -webkit-backdrop-filter: blur(50px) saturate(200%) !important;
+  z-index: 9999 !important;
   display: none;
-  /* Forced hide by default */
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -73,7 +84,7 @@ a:focus {
 }
 
 .mobile-glass-menu.is-active {
-  display: flex;
+  display: flex !important;
   opacity: 1;
 }
 
@@ -84,7 +95,7 @@ a:focus {
 }
 
 .mobile-links li {
-  margin: 1.5rem 0;
+  margin: 2rem 0 !important;
   transform: translateY(20px);
   opacity: 0;
   transition: all 0.5s ease;
@@ -96,12 +107,12 @@ a:focus {
 }
 
 .mobile-links a {
-  font-size: 3rem !important;
-  /* Increased to 150% (from 2rem) */
+  font-size: 4rem !important;
+  /* Huge font 200% */
   font-weight: 800;
   color: #fff;
   text-decoration: none !important;
-  background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.5));
+  background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.6));
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -109,7 +120,7 @@ a:focus {
 }
 
 .mobile-links a:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .menu-close__btn {
@@ -118,9 +129,10 @@ a:focus {
   right: 2rem;
   background: none;
   border: none;
-  font-size: 3rem;
+  font-size: 3.5rem;
   color: #fff;
   cursor: pointer;
+  z-index: 10001;
 }
 
 .mobile-menu__toggle {

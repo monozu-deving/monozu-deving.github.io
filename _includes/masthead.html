@@ -35,14 +35,6 @@
           </button>
         </div>
 
-        <div class="mobile-glass-menu" id="mobile-menu">
-          <button class="menu-close__btn" type="button">&times;</button>
-          <ul class="mobile-links">
-            {%- for link in site.data.navigation.main -%}
-            <li><a href="{{ link.url | relative_url }}">{{ link.title }}</a></li>
-            {%- endfor -%}
-          </ul>
-        </div>
       </nav>
     </div>
   </div>
