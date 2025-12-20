@@ -1,24 +1,26 @@
-/* =========================================================
-     Premium Glass Navigation (Stable & High Performance)
-     ========================================================= */
-
 .masthead {
   overflow: visible !important;
   backdrop-filter: blur(5px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   z-index: 1000;
+  min-height: 80px;
+  /* Force minimum height instead of relying on padding */
 }
 
 .masthead__inner-wrap {
   overflow: visible !important;
-  padding: 1.25rem 1rem !important;
-  /* Increased vertical padding to fix clipping */
+  padding: 1.5rem 1rem !important;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 
 .greedy-nav {
   position: relative;
-  display: flex;
+  display: flex !important;
   align-items: center;
+  justify-content: space-between;
+  width: 100%;
   overflow: visible !important;
 }
 
@@ -28,33 +30,108 @@
   margin: 0;
   padding: 0;
   list-style: none;
+
+  @media (max-width: 768px) {
+    display: none !important;
+    /* Hide standard links on mobile to use the layer */
+  }
 }
 
-/* Stable Mobile Dropdown */
-.hidden-links {
-  position: absolute;
-  top: calc(100% + 10px);
-  right: 0;
-  background: rgba(25, 25, 30, 0.95);
-  backdrop-filter: blur(25px);
-  border-radius: 1.25rem;
-  padding: 1rem !important;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-  z-index: 1100;
-  min-width: 200px;
-  display: flex !important;
-  flex-direction: column;
+.masthead__actions {
+  display: flex;
+  align-items: center;
   gap: 0.5rem;
 }
 
-.hidden-links.hidden {
-  display: none !important;
+/* New Glass Mobile Menu Layer */
+.mobile-glass-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(40px) saturate(180%);
+  z-index: 5000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-.hidden-links li {
-  display: block;
-  width: 100%;
+.mobile-glass-menu.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-links {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.mobile-links li {
+  margin: 1.5rem 0;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.mobile-glass-menu.is-active .mobile-links li {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.mobile-links a {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+  text-decoration: none !important;
+  background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.5));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.mobile-links a:hover {
+  transform: scale(1.1);
+}
+
+.menu-close__btn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  font-size: 3rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.mobile-menu__toggle {
+  display: none;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 0.7rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  @media (max-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.mobile-menu__toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
 }
 
 /* PREMIUM GLASS BUTTONS */
@@ -63,8 +140,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 1.2rem;
-  margin: 0 0.2rem;
+  padding: 0.6rem 1.4rem;
+  /* Balanced padding */
+  margin: 0 0.4rem;
+  /* More space between buttons */
   border-radius: 2rem;
   font-size: 0.85rem;
   font-weight: 500;
@@ -76,18 +155,24 @@
   backdrop-filter: blur(10px) saturate(140%);
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   cursor: pointer;
-  z-index: 1;
+  z-index: 10;
+  /* Ensure stays on top within masthead */
   white-space: nowrap;
   overflow: visible;
-
-  @media (max-width: 768px) {
-    padding: 0.4rem 0.8rem;
-    margin: 0 0.1rem;
-    font-size: 0.75rem;
-  }
 }
 
-/* Spotlight Highlight (Handled by JS variables) */
+/* THE HOVER CLIPPING FIX */
+/* Remove translate constraints and ensure parent doesn't cut off */
+.masthead__menu-item a:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #fff !important;
+  transform: translateY(-2px);
+  /* Deliberate slight rise */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Spotlight Highlight */
 .masthead__menu-item a::after {
   content: "";
   position: absolute;
@@ -105,144 +190,20 @@
   z-index: -1;
 }
 
-/* Sharp Top Light Reflection */
-.masthead__menu-item a::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 15%;
-  right: 15%;
-  height: 1px;
-  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
-  z-index: 2;
-  pointer-events: none;
-  opacity: 0.5;
-  transition: opacity 0.3s ease;
-}
-
-.masthead__menu-item a:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.25);
-  color: #fff !important;
-  transform: translateY(-1px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-.masthead__menu-item a:hover::after {
-  --rs: 1;
-}
-
-.masthead__menu-item a:hover::before {
-  opacity: 1;
-}
-
-/* =======================================================
-   Remove default nav underline from Minimal Mistakes
-   ======================================================= */
-
-/* 모든 네비게이션 a::before 제거 */
-/* =======================================================
-     Home / Archive Styling (Modernized - Revived)
-     ======================================================= */
-.layout--home .archive__subtitle {
-  font-size: 1.6rem;
-  font-weight: 700;
-  margin-top: 3.5rem;
-  margin-bottom: 2rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.05);
-  color: #fff;
-}
-
-.entries-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  /* Increased gap to prevent overlap */
-  max-width: 900px;
-}
-
-/* Mobile Toggle Style */
-.greedy-nav__toggle {
-  background: rgba(255, 255, 255, 0.05) !important;
+/* Search Button Enhancement */
+.search__toggle {
+  display: inline-block !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
   border-radius: 50% !important;
-  width: 2.5rem !important;
-  height: 2.5rem !important;
-  padding: 0 !important;
+  width: 2.8rem !important;
+  height: 2.8rem !important;
   display: flex !important;
   align-items: center;
   justify-content: center;
-  border: 0.5px solid rgba(255, 255, 255, 0.1) !important;
-  color: #fff !important;
-  transition: all 0.3s ease;
-  z-index: 50;
-}
-
-.greedy-nav__toggle:hover {
-  background: rgba(255, 255, 255, 0.1) !important;
-}
-
-.navicon {
-  background: #fff !important;
-}
-
-.navicon::before,
-.navicon::after {
-  background: #fff !important;
-}
-
-.list__item {
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 1.5rem;
-  padding: 1.5rem 2rem;
-  /* Reduced vertical padding */
-  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
-  backdrop-filter: blur(10px);
-  margin-bottom: 0.5rem;
-  /* Explicit margin */
-}
-
-.list__item:hover {
-  background: rgba(255, 255, 255, 0.04);
-  transform: translateY(-5px) scale(1.02);
-  border-color: rgba(255, 255, 255, 0.12);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-/* Remove default sidebar in home if preferred, but user didn't ask. 
-   Keeping it but ensuring it doesn't clash. */
-
-/* 모든 네비게이션 a::before 제거 */
-/* Ensure navigation buttons are cleaned up */
-.masthead .greedy-nav a::before {
-  content: none !important;
-}
-
-.masthead .greedy-nav a {
-  text-decoration: none !important;
-}
-
-/* Search Button Style Improvement */
-.search__toggle {
-  display: inline-block !important;
-  /* Ensure visibility */
-  color: rgba(255, 255, 255, 0.7) !important;
-  transition: color 0.3s ease;
-  position: relative;
-  z-index: 2000;
-  /* Ensure it's above everything */
-  background: transparent !important;
-  border: none !important;
-  padding: 0.6rem !important;
-  margin-left: 0.8rem !important;
   cursor: pointer !important;
-  vertical-align: middle;
-
-  @media (max-width: 768px) {
-    margin-left: 0.3rem !important;
-    padding: 0.4rem !important;
-  }
+  z-index: 2000;
 }
 
 .search__toggle:hover {
