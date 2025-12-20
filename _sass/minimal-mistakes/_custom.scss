@@ -1,6 +1,6 @@
 .masthead {
   overflow: visible !important;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   z-index: 1000;
   min-height: 80px;
@@ -8,7 +8,7 @@
 
 .masthead__inner-wrap {
   overflow: visible !important;
-  padding: 1.5rem 1rem !important;
+  padding: 1rem 1.5rem !important;
   display: flex;
   align-items: center;
   height: 100%;
@@ -59,7 +59,6 @@ a:focus,
   -webkit-tap-highlight-color: transparent !important;
 }
 
-/* Aggressive removal of theme-default active lines */
 .masthead__menu-item--active a::after,
 .masthead__menu-item.active a::after,
 .greedy-nav .active a::after,
@@ -71,6 +70,89 @@ a:focus,
   border: none !important;
 }
 
+/* GLASS MASTHEAD BUTTONS (No Blue Underline) */
+.masthead__menu-item a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.4rem;
+  margin: 0 0.4rem;
+  border-radius: 2rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85) !important;
+  text-decoration: none !important;
+  background: rgba(255, 255, 255, 0.03);
+  border: 0.5px solid rgba(255, 255, 255, 0.1) !important;
+  box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px) saturate(140%);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  cursor: pointer;
+  z-index: 10;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+.masthead__menu-item a:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.25) !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  /* Explicitly remove any blue bottom border from theme */
+  border-bottom-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+/* No spotlight or pseudo-element underlines */
+.masthead__menu-item a::after,
+.masthead__menu-item a::before {
+  display: none !important;
+  content: none !important;
+}
+
+/* NEW: GLASS POST CARDS (Archive Items) */
+.archive__item {
+  position: relative;
+  background: rgba(255, 255, 255, 0.035) !important;
+  backdrop-filter: blur(12px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(12px) saturate(160%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 1.5rem !important;
+  padding: 2.5rem !important;
+  margin-bottom: 2.5rem !important;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1) !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+.archive__item:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  transform: translateY(-5px) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25) !important;
+}
+
+.archive__item-title {
+  margin-top: 0 !important;
+  font-size: 1.6rem !important;
+  font-weight: 800 !important;
+}
+
+.archive__item-title a {
+  color: #fff !important;
+  text-decoration: none !important;
+  background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.7));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.archive__item-excerpt {
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-size: 0.95rem !important;
+  line-height: 1.6 !important;
+}
+
 /* New Glass Mobile Menu Layer */
 .mobile-glass-menu {
   position: fixed;
@@ -78,7 +160,7 @@ a:focus,
   left: 0;
   width: 100%;
   height: 100vh;
-  background: rgba(10, 10, 15, 0.75) !important;
+  background: rgba(10, 10, 15, 0.8) !important;
   backdrop-filter: blur(50px) saturate(200%) !important;
   -webkit-backdrop-filter: blur(50px) saturate(200%) !important;
   z-index: 9999 !important;
@@ -115,7 +197,6 @@ a:focus,
 
 .mobile-links a {
   font-size: 2rem !important;
-  /* Halved as requested */
   font-weight: 700;
   color: #fff;
   text-decoration: none !important;
@@ -159,55 +240,6 @@ a:focus,
     align-items: center;
     justify-content: center;
   }
-}
-
-/* PREMIUM GLASS BUTTONS */
-.masthead__menu-item a {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.6rem 1.4rem;
-  margin: 0 0.4rem;
-  border-radius: 2rem;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.85) !important;
-  text-decoration: none !important;
-  background: rgba(255, 255, 255, 0.03);
-  border: 0.5px solid rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px) saturate(140%);
-  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-  cursor: pointer;
-  z-index: 10;
-  white-space: nowrap;
-  overflow: visible;
-}
-
-.masthead__menu-item a:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(255, 255, 255, 0.25);
-  color: #fff !important;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-}
-
-.masthead__menu-item a::after {
-  content: "";
-  position: absolute;
-  top: var(--ry, 50%);
-  left: var(--rx, 50%);
-  width: 120px;
-  height: 120px;
-  background: radial-gradient(circle at center,
-      rgba(255, 255, 255, 0.2) 0%,
-      transparent 70%);
-  border-radius: 50%;
-  transform: translate(-50%, -50%) scale(var(--rs, 0));
-  pointer-events: none;
-  transition: transform 0.3s ease;
-  z-index: -1;
 }
 
 .site-title {

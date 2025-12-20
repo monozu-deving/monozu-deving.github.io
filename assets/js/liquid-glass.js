@@ -3,7 +3,7 @@
  */
 (function () {
   function bindSpotlight() {
-    const btns = document.querySelectorAll('.masthead__menu-item a, .search__toggle, .mobile-menu__toggle');
+    const btns = document.querySelectorAll('.masthead__menu-item a, .mobile-menu__toggle');
 
     btns.forEach(btn => {
       btn.addEventListener('mousemove', (e) => {
