@@ -1,14 +1,14 @@
 # main links
 main:
-  - title: "<a class='glass-btn' href='/ai/'>AI</a>"
+  - title: AI
     url: /ai/
-  - title: "<a class='glass-btn' href='/sw/'>SW</a>"
+  - title: SW
     url: /sw/
-  - title: "<a class='glass-btn' href='/hw/'>HW</a>"
+  - title: HW
     url: /hw/
-  - title: "<a class='glass-btn' href='/graphic/'>Graphic</a>"
+  - title: Graphic
     url: /graphic/
-  - title: "<a class='glass-btn' href='/diary/'>Diary</a>"
+  - title: Diary
     url: /diary/
 
 
