@@ -43,6 +43,16 @@
   gap: 0.5rem;
 }
 
+/* Global Focus Reset (Remove Blue Outlines) */
+*:focus,
+*:active,
+button:focus,
+a:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
 /* New Glass Mobile Menu Layer */
 .mobile-glass-menu {
   position: fixed;
@@ -52,73 +62,30 @@
   height: 100vh;
   background: rgba(10, 10, 15, 0.85);
   backdrop-filter: blur(40px) saturate(180%);
-  z-index: 5000;
-  display: flex;
+  z-index: 9999;
+  display: none;
+  /* Forced hide by default */
   flex-direction: column;
   justify-content: center;
   align-items: center;
   opacity: 0;
-  visibility: hidden;
-  transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  transition: opacity 0.4s ease;
 }
 
 .mobile-glass-menu.is-active {
+  display: flex;
   opacity: 1;
-  visibility: visible;
-}
-
-.mobile-links {
-  list-style: none;
-  padding: 0;
-  text-align: center;
-}
-
-.mobile-links li {
-  margin: 1.5rem 0;
-  transform: translateY(20px);
-  opacity: 0;
-  transition: all 0.5s ease;
-}
-
-.mobile-glass-menu.is-active .mobile-links li {
-  transform: translateY(0);
-  opacity: 1;
-}
-
-.mobile-links a {
-  font-size: 2rem;
-  font-weight: 800;
-  color: #fff;
-  text-decoration: none !important;
-  background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.5));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: all 0.3s ease;
-}
-
-.mobile-links a:hover {
-  transform: scale(1.1);
-}
-
-.menu-close__btn {
-  position: absolute;
-  top: 2rem;
-  right: 2rem;
-  background: none;
-  border: none;
-  font-size: 3rem;
-  color: #fff;
-  cursor: pointer;
 }
 
 .mobile-menu__toggle {
   display: none;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #fff;
-  padding: 0.7rem;
-  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  color: #fff !important;
+  padding: 0.8rem !important;
+  border-radius: 50% !important;
+  width: 3rem !important;
+  height: 3rem !important;
   cursor: pointer;
   transition: all 0.3s ease;
 
@@ -127,11 +94,6 @@
     align-items: center;
     justify-content: center;
   }
-}
-
-.mobile-menu__toggle:hover {
-  background: rgba(255, 255, 255, 0.1);
-  transform: scale(1.1);
 }
 
 /* PREMIUM GLASS BUTTONS */
