@@ -1,105 +1,132 @@
 /* =========================================================
-     Apple-style Liquid Gooey Navigation
+     Premium Glass Navigation (Stable & High Performance)
      ========================================================= */
-.visible-links,
-.hidden-links {
-  filter: url('#gooey');
+
+.masthead {
+  overflow: visible !important;
+  backdrop-filter: blur(5px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: 1000;
+}
+
+.masthead__inner-wrap {
+  overflow: visible !important;
+  padding: 0.75rem 1rem !important;
+}
+
+.greedy-nav {
+  position: relative;
+  display: flex;
+  align-items: center;
   overflow: visible !important;
 }
 
 .visible-links {
   display: flex;
   align-items: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-/* Dropdown Style */
+/* Stable Mobile Dropdown */
 .hidden-links {
   position: absolute;
-  top: 100%;
+  top: calc(100% + 10px);
   right: 0;
-  margin-top: 0.5rem;
-  background: rgba(20, 20, 25, 0.95);
-  backdrop-filter: blur(20px);
-  border-radius: 1rem;
+  background: rgba(25, 25, 30, 0.95);
+  backdrop-filter: blur(25px);
+  border-radius: 1.25rem;
   padding: 1rem !important;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-  z-index: 100;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  z-index: 1100;
+  min-width: 200px;
+  display: flex !important;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hidden-links.hidden {
+  display: none !important;
 }
 
 .hidden-links li {
   display: block;
-  margin-bottom: 0.5rem;
+  width: 100%;
 }
 
-.greedy-nav {
-  position: relative;
-  overflow: visible !important;
-  display: flex;
-  align-items: center;
-}
-
-/* Increase masthead visibility */
-.masthead,
-.masthead__inner-wrap {
-  overflow: visible !important;
-  padding: 0.5rem 1rem !important;
-}
-
-/* TARGET THE ACTUAL LINKS */
+/* PREMIUM GLASS BUTTONS */
 .masthead__menu-item a {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.45rem 1.1rem;
-  margin: 0 0.15rem;
+  padding: 0.5rem 1.2rem;
+  margin: 0 0.2rem;
   border-radius: 2rem;
   font-size: 0.85rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.9) !important;
-  background: rgba(255, 255, 255, 0.04);
-  border: 0.5px solid rgba(255, 255, 255, 0.12);
-  box-shadow:
-    0 4px 15px rgba(0, 0, 0, 0.1),
-    inset 0 0 0 0.5px rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px) saturate(130%);
-  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  color: rgba(255, 255, 255, 0.85) !important;
+  text-decoration: none !important;
+  background: rgba(255, 255, 255, 0.03);
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px) saturate(140%);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   cursor: pointer;
   z-index: 1;
-  overflow: visible;
   white-space: nowrap;
+  overflow: visible;
 }
 
-/* The Refractive Highlight */
+/* Spotlight Highlight (Handled by JS variables) */
 .masthead__menu-item a::after {
   content: "";
   position: absolute;
   top: var(--ry, 50%);
   left: var(--rx, 50%);
-  width: 60px;
-  height: 60px;
+  width: 120px;
+  height: 120px;
   background: radial-gradient(circle at center,
-      rgba(255, 255, 255, 0.3) 0%,
-      rgba(255, 255, 255, 0.05) 30%,
+      rgba(255, 255, 255, 0.2) 0%,
       transparent 70%);
   border-radius: 50%;
   transform: translate(-50%, -50%) scale(var(--rs, 0));
-  filter: blur(5px);
   pointer-events: none;
-  transition: transform 0.25s ease-out;
+  transition: transform 0.3s ease;
   z-index: -1;
-  mix-blend-mode: overlay;
+}
+
+/* Sharp Top Light Reflection */
+.masthead__menu-item a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 15%;
+  right: 15%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
 }
 
 .masthead__menu-item a:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.3);
-  text-decoration: none !important;
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.25);
+  color: #fff !important;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .masthead__menu-item a:hover::after {
-  --rs: 1.5;
+  --rs: 1;
+}
+
+.masthead__menu-item a:hover::before {
+  opacity: 1;
 }
 
 /* =======================================================
