@@ -8,6 +8,8 @@ main:
     url: /hw/
   - title: Graphic
     url: /graphic/
+  - title: Math
+    url: /math/
   - title: Diary
     url: /diary/
 

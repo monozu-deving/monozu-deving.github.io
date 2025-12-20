@@ -4,7 +4,6 @@
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   z-index: 1000;
   min-height: 80px;
-  /* Force minimum height instead of relying on padding */
 }
 
 .masthead__inner-wrap {
@@ -33,7 +32,6 @@
 
   @media (max-width: 768px) {
     display: none !important;
-    /* Hide standard links on mobile to use the layer */
   }
 }
 
@@ -43,25 +41,34 @@
   gap: 0.5rem;
 }
 
-/* Global Focus & Active State Reset (Remove Blue Outlines/Bars) */
+/* Global Reset for Active/Focus Indicators */
 *:focus,
 *:active,
 button:focus,
 a:focus,
 .masthead__menu-item--active a,
 .masthead__menu-item.active a,
+.greedy-nav .active a,
+.current a,
 .greedy-nav .active,
 .current {
   outline: none !important;
   box-shadow: none !important;
   border-bottom: none !important;
+  text-decoration: none !important;
   -webkit-tap-highlight-color: transparent !important;
 }
 
+/* Aggressive removal of theme-default active lines */
 .masthead__menu-item--active a::after,
 .masthead__menu-item.active a::after,
-.greedy-nav .active::after {
+.greedy-nav .active a::after,
+.current a::after,
+.greedy-nav .active::after,
+.current::after {
   display: none !important;
+  content: none !important;
+  border: none !important;
 }
 
 /* New Glass Mobile Menu Layer */
@@ -95,7 +102,7 @@ a:focus,
 }
 
 .mobile-links li {
-  margin: 2rem 0 !important;
+  margin: 1.5rem 0 !important;
   transform: translateY(20px);
   opacity: 0;
   transition: all 0.5s ease;
@@ -107,9 +114,9 @@ a:focus,
 }
 
 .mobile-links a {
-  font-size: 4rem !important;
-  /* Huge font 200% */
-  font-weight: 800;
+  font-size: 2rem !important;
+  /* Halved as requested */
+  font-weight: 700;
   color: #fff;
   text-decoration: none !important;
   background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.6));
@@ -129,7 +136,7 @@ a:focus,
   right: 2rem;
   background: none;
   border: none;
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   color: #fff;
   cursor: pointer;
   z-index: 10001;
@@ -161,9 +168,7 @@ a:focus,
   align-items: center;
   justify-content: center;
   padding: 0.6rem 1.4rem;
-  /* Balanced padding */
   margin: 0 0.4rem;
-  /* More space between buttons */
   border-radius: 2rem;
   font-size: 0.85rem;
   font-weight: 500;
@@ -176,23 +181,18 @@ a:focus,
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   cursor: pointer;
   z-index: 10;
-  /* Ensure stays on top within masthead */
   white-space: nowrap;
   overflow: visible;
 }
 
-/* THE HOVER CLIPPING FIX */
-/* Remove translate constraints and ensure parent doesn't cut off */
 .masthead__menu-item a:hover {
   background: rgba(255, 255, 255, 0.06);
   border-color: rgba(255, 255, 255, 0.25);
   color: #fff !important;
   transform: translateY(-2px);
-  /* Deliberate slight rise */
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
-/* Spotlight Highlight */
 .masthead__menu-item a::after {
   content: "";
   position: absolute;
@@ -210,32 +210,6 @@ a:focus,
   z-index: -1;
 }
 
-/* Search Button Enhancement */
-.search__toggle {
-  display: inline-block !important;
-  color: rgba(255, 255, 255, 0.7) !important;
-  background: rgba(255, 255, 255, 0.04) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-radius: 50% !important;
-  width: 2.8rem !important;
-  height: 2.8rem !important;
-  display: flex !important;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer !important;
-  z-index: 2000;
-}
-
-.search__toggle:hover {
-  color: #fff !important;
-  transform: scale(1.1);
-}
-
-.search__toggle i {
-  font-size: 1.1rem;
-}
-
-/* Ensure masthead title doesn't shrink too much */
 .site-title {
   margin-right: 1.5rem !important;
   flex-shrink: 0;
