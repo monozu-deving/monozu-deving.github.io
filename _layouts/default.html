@@ -22,8 +22,15 @@
   </div>
 
   {% if site.search == true %}
-  <div class="search-content">
-    {% include_cached search/search_form.html %}
+  <div class="spotlight-overlay" id="spotlight-overlay">
+    <div class="spotlight-container">
+      <div class="spotlight-search-box">
+        <i class="fas fa-search spotlight-icon"></i>
+        <input type="search" id="search" class="spotlight-input" placeholder="Search..." autocomplete="off" />
+        <span class="spotlight-shortcut">ESC</span>
+      </div>
+      <div id="results" class="spotlight-results"></div>
+    </div>
   </div>
   {% endif %}
 

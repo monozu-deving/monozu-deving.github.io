@@ -56,17 +56,17 @@
 
   function bindSearch() {
     const searchToggle = document.querySelector('.search__toggle');
-    const searchContent = document.querySelector('.search-content');
-    const searchInput = document.querySelector('.search-input');
+    const spotlightOverlay = document.getElementById('spotlight-overlay');
+    const spotlightInput = document.querySelector('.spotlight-input');
 
-    if (searchToggle && searchContent) {
+    if (searchToggle && spotlightOverlay) {
       // Toggle search overlay
       searchToggle.addEventListener('click', () => {
-        searchContent.classList.toggle('is--visible');
-        if (searchContent.classList.contains('is--visible')) {
+        spotlightOverlay.classList.toggle('is--visible');
+        if (spotlightOverlay.classList.contains('is--visible')) {
           document.body.style.overflow = 'hidden';
-          if (searchInput) {
-            setTimeout(() => searchInput.focus(), 100);
+          if (spotlightInput) {
+            setTimeout(() => spotlightInput.focus(), 100);
           }
         } else {
           document.body.style.overflow = '';
@@ -75,20 +75,42 @@
 
       // Close on Escape key
       document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && searchContent.classList.contains('is--visible')) {
-          searchContent.classList.remove('is--visible');
+        if (e.key === 'Escape' && spotlightOverlay.classList.contains('is--visible')) {
+          spotlightOverlay.classList.remove('is--visible');
           document.body.style.overflow = '';
+          // Clear search results when closing
+          const resultsDiv = document.getElementById('results');
+          if (resultsDiv) resultsDiv.innerHTML = '';
+          if (spotlightInput) spotlightInput.value = '';
         }
       });
 
-      // Close on click outside search form
-      searchContent.addEventListener('click', (e) => {
-        if (e.target === searchContent) {
-          searchContent.classList.remove('is--visible');
+      // Close on click outside spotlight container
+      spotlightOverlay.addEventListener('click', (e) => {
+        if (e.target === spotlightOverlay) {
+          spotlightOverlay.classList.remove('is--visible');
           document.body.style.overflow = '';
+          // Clear search results when closing
+          const resultsDiv = document.getElementById('results');
+          if (resultsDiv) resultsDiv.innerHTML = '';
+          if (spotlightInput) spotlightInput.value = '';
         }
       });
     }
+
+    // Keyboard shortcut: Cmd/Ctrl + K to open search
+    document.addEventListener('keydown', (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+        e.preventDefault();
+        if (spotlightOverlay) {
+          spotlightOverlay.classList.add('is--visible');
+          document.body.style.overflow = 'hidden';
+          if (spotlightInput) {
+            setTimeout(() => spotlightInput.focus(), 100);
+          }
+        }
+      }
+    });
   }
 
   // Initialize
