@@ -5,6 +5,8 @@
   filter: url('#gooey');
   position: relative;
   overflow: visible !important;
+  padding: 1.5rem 0 !important;
+  /* Space for liquid stretching */
 }
 
 .glass-btn {
@@ -12,24 +14,25 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.55rem 1.3rem;
+  padding: 0.5rem 1.25rem;
   margin: 0 0.15rem;
   border-radius: 2rem;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.95);
   text-decoration: none;
-  background: rgba(255, 255, 255, 0.05);
-  /* Shaper Glass Edge */
-  border: 0.5px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.04);
+  /* Softer Glass Edge */
+  border: 0.5px solid rgba(255, 255, 255, 0.12);
   box-shadow:
-    0 4px 15px rgba(0, 0, 0, 0.15),
-    inset 0 0 0 0.5px rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px) saturate(140%);
-  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+    0 4px 15px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 0.5px rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px) saturate(130%);
+  transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1), background 0.3s ease;
   cursor: pointer;
   z-index: 1;
-  overflow: hidden;
+  overflow: visible;
+  /* Prevents liquid clipping */
 }
 
 /* The Refractive Highlight (Sharper) */
@@ -41,13 +44,12 @@
   width: 100px;
   height: 100px;
   background: radial-gradient(circle at center,
-      rgba(255, 255, 255, 0.4) 0%,
-      rgba(255, 255, 255, 0.1) 30%,
+      rgba(255, 255, 255, 0.35) 0%,
+      rgba(255, 255, 255, 0.08) 30%,
       transparent 70%);
   border-radius: 50%;
   transform: translate(-50%, -50%) scale(var(--rs, 0));
-  filter: blur(4px);
-  /* Reduced blur for sharpness */
+  filter: blur(6px);
   pointer-events: none;
   transition: transform 0.25s ease-out;
   z-index: -1;
@@ -55,15 +57,12 @@
 }
 
 .glass-btn:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.45);
-  box-shadow:
-    0 8px 25px rgba(0, 0, 0, 0.2),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 .glass-btn:hover::after {
-  --rs: 1.2;
+  --rs: 1.3;
 }
 
 /* Sharp Top Light / Reflection */
@@ -74,7 +73,7 @@
   left: 10%;
   right: 10%;
   height: 1px;
-  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.6), transparent);
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.4), transparent);
   pointer-events: none;
   z-index: 2;
 }
@@ -88,9 +87,9 @@
      Home / Archive Styling (Modernized - Revived)
      ======================================================= */
 .layout--home .archive__subtitle {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: 700;
-  margin-top: 4rem;
+  margin-top: 3.5rem;
   margin-bottom: 2rem;
   padding-bottom: 0.5rem;
   border-bottom: 2px solid rgba(255, 255, 255, 0.05);
@@ -100,7 +99,8 @@
 .entries-list {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 2rem;
+  /* Increased gap to prevent overlap */
   max-width: 900px;
 }
 
