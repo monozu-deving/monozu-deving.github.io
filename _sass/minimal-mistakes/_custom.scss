@@ -77,6 +77,52 @@ a:focus {
   opacity: 1;
 }
 
+.mobile-links {
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.mobile-links li {
+  margin: 1.5rem 0;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.mobile-glass-menu.is-active .mobile-links li {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.mobile-links a {
+  font-size: 3rem !important;
+  /* Increased to 150% (from 2rem) */
+  font-weight: 800;
+  color: #fff;
+  text-decoration: none !important;
+  background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.5));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.mobile-links a:hover {
+  transform: scale(1.1);
+}
+
+.menu-close__btn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: none;
+  border: none;
+  font-size: 3rem;
+  color: #fff;
+  cursor: pointer;
+}
+
 .mobile-menu__toggle {
   display: none;
   background: rgba(255, 255, 255, 0.08) !important;
