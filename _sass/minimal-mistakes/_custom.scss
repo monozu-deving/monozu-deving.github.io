@@ -11,7 +11,8 @@
 
 .masthead__inner-wrap {
   overflow: visible !important;
-  padding: 0.75rem 1rem !important;
+  padding: 1.25rem 1rem !important;
+  /* Increased vertical padding to fix clipping */
 }
 
 .greedy-nav {
@@ -78,6 +79,12 @@
   z-index: 1;
   white-space: nowrap;
   overflow: visible;
+
+  @media (max-width: 768px) {
+    padding: 0.4rem 0.8rem;
+    margin: 0 0.1rem;
+    font-size: 0.75rem;
+  }
 }
 
 /* Spotlight Highlight (Handled by JS variables) */
@@ -231,6 +238,11 @@
   margin-left: 0.8rem !important;
   cursor: pointer !important;
   vertical-align: middle;
+
+  @media (max-width: 768px) {
+    margin-left: 0.3rem !important;
+    padding: 0.4rem !important;
+  }
 }
 
 .search__toggle:hover {
