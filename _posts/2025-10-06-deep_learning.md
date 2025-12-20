@@ -1,5 +1,6 @@
 ---
 title: "DL이란?"
+emoji: "🤖"
 layout: single
 toc: true              # ✅ 목차 활성화
 toc_label: "📑 목차"   # (선택) 목차 제목

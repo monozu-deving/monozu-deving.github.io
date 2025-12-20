@@ -8,7 +8,8 @@
 
 .masthead__inner-wrap {
   overflow: visible !important;
-  padding: 1rem 1.5rem !important;
+  padding: 1.5rem 1.5rem !important;
+  /* Increased top padding */
   display: flex;
   align-items: center;
   height: 100%;
@@ -163,6 +164,13 @@ a:focus,
 .archive__item-title a {
   color: #fff !important;
   text-decoration: none !important;
+}
+
+/* Post Emoji Styling */
+.post-emoji {
+  font-size: 1.3rem;
+  margin-right: 0.5rem;
+  display: inline-block;
 }
 
 .archive__item-excerpt {
