@@ -191,19 +191,28 @@
 
 /* Search Button Style Improvement */
 .search__toggle {
-  color: rgba(255, 255, 255, 0.6) !important;
+  display: inline-block !important;
+  /* Ensure visibility */
+  color: rgba(255, 255, 255, 0.7) !important;
   transition: color 0.3s ease;
   position: relative;
-  z-index: 60;
+  z-index: 2000;
+  /* Ensure it's above everything */
   background: transparent !important;
   border: none !important;
-  padding: 0.5rem !important;
-  margin-left: 0.5rem !important;
+  padding: 0.6rem !important;
+  margin-left: 0.8rem !important;
   cursor: pointer !important;
+  vertical-align: middle;
 }
 
 .search__toggle:hover {
   color: #fff !important;
+  transform: scale(1.1);
+}
+
+.search__toggle i {
+  font-size: 1.1rem;
 }
 
 /* Ensure masthead title doesn't shrink too much */
