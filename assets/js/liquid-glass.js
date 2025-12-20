@@ -87,7 +87,10 @@
 
       // Close on click outside spotlight container
       spotlightOverlay.addEventListener('click', (e) => {
+        // Only close if clicking directly on the overlay background
         if (e.target === spotlightOverlay) {
+          e.preventDefault();
+          e.stopPropagation();
           spotlightOverlay.classList.remove('is--visible');
           document.body.style.overflow = '';
           // Clear search results when closing
@@ -96,6 +99,14 @@
           if (spotlightInput) spotlightInput.value = '';
         }
       });
+
+      // Prevent clicks inside container from closing
+      const spotlightContainer = spotlightOverlay.querySelector('.spotlight-container');
+      if (spotlightContainer) {
+        spotlightContainer.addEventListener('click', (e) => {
+          e.stopPropagation();
+        });
+      }
     }
 
     // Keyboard shortcut: Cmd/Ctrl + K to open search
