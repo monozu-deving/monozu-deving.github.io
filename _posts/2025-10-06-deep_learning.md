@@ -1,5 +1,6 @@
 ---
 title: "DL이란?"
+published: false
 emoji: "🤖"
 layout: single
 toc: true              # ✅ 목차 활성화
