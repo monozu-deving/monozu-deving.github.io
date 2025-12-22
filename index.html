@@ -55,7 +55,8 @@ classes: wide
         gap: 2rem;
         width: 100%;
         align-items: flex-start;
-        padding-top: 3rem;
+        padding-top: 1rem;
+        /* Reduced padding to move title up */
     }
 
     .intro-pane {
@@ -79,6 +80,8 @@ classes: wide
         font-size: 2.8rem;
         font-weight: 850;
         line-height: 1.1;
+        margin-top: 0 !important;
+        /* Forces title to the very top */
         margin-bottom: 1.5rem;
         background: linear-gradient(to right, #fff, #bbb);
         -webkit-background-clip: text;
@@ -135,17 +138,19 @@ classes: wide
     }
 
     .card-1 {
-        top: 10%;
-        right: 5%;
+        top: 12%;
+        right: 8%;
         transform: rotate(6deg);
-        z-index: 1;
+        z-index: 2;
+        /* Total Posts to the front */
     }
 
     .card-2 {
-        top: 25%;
-        right: 25%;
+        top: 28%;
+        right: 22%;
         transform: rotate(-6deg);
-        z-index: 2;
+        z-index: 1;
+        /* Major to the back */
     }
 
     .label {
