@@ -30,3 +30,9 @@ codekit-config.json
 .sass-cache
 _asset_bundler_cache
 _site
+
+# Plaintext thank-you letters must never be committed.
+_private_letters/
+
+# Generated only inside the GitHub Pages Actions runner.
+assets/data/thanks-letters.json

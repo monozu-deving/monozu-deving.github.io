@@ -1,5 +1,5 @@
 ---
-title: "Math — 수학 공부 내용 기록"
+title: "Math"
 layout: archive
 permalink: /math/
 author_profile: true

@@ -1,5 +1,5 @@
 ---
-title: "AI — AI 이론 공부 기록"
+title: "AI"
 layout: archive
 permalink: /ai/
 author_profile: true

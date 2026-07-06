@@ -1,5 +1,5 @@
 ---
-title: "SW — 소프트웨어 기록"
+title: "SW"
 layout: archive
 permalink: /sw/
 author_profile: true

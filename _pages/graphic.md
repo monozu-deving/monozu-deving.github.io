@@ -1,5 +1,5 @@
 ---
-title: "graphic"
+title: "Graphic"
 layout: archive
 permalink: /graphic/
 author_profile: true
