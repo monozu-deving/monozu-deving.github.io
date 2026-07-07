@@ -63,8 +63,8 @@ function parseLetter(source, filename) {
   }
 
   const code = String(metadata.code).trim().normalize("NFKC");
-  if (code.length < 16) {
-    throw new Error(`${filename}: 개인 코드는 추측하기 어렵게 16자 이상 사용하세요.`);
+  if (/REPLACE|PLACEHOLDER|EXAMPLE|SAMPLE|CHANGE[-_ ]?ME/i.test(code) || code.length < 24) {
+    throw new Error(`${filename}: 예시 코드를 24자 이상의 무작위 개인 코드로 교체하세요.`);
   }
 
   return {

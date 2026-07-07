@@ -36,3 +36,7 @@ _private_letters/
 
 # Generated only inside the GitHub Pages Actions runner.
 assets/data/thanks-letters.json
+
+# Local draft copies copied into the THANKS_LETTERS_MD secret.
+examples/*.local.md
+thanks-letters.local.md
