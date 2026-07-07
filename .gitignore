@@ -40,3 +40,6 @@ assets/data/thanks-letters.json
 # Local draft copies copied into the THANKS_LETTERS_MD secret.
 examples/*.local.md
 thanks-letters.local.md
+
+# Source-only private assets before publishing them under assets/.
+_thanks_for_rcv/
