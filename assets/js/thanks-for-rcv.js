@@ -11,6 +11,8 @@
   var close = document.getElementById("letter-close");
   var status = document.getElementById("letter-status");
   var indexUrl = document.body.dataset.letterIndex;
+  var releaseUrl = document.body.dataset.releaseUrl || "/thanks_for_rcv/not-yet/";
+  var releaseAt = Date.parse(document.body.dataset.releaseAt || "2026-07-09T15:00:00.000Z");
   var encoder = new TextEncoder();
   var decoder = new TextDecoder();
   var additionalData = encoder.encode("thanks-for-rcv:v1");
@@ -218,6 +220,10 @@
     return html.join("");
   }
 
+  function shouldDelayLetter(letter) {
+    return !letter.test && Number.isFinite(releaseAt) && Date.now() < releaseAt;
+  }
+
   function showLetter(letter) {
     document.getElementById("letter-recipient").textContent = "TO. " + letter.recipient;
     document.getElementById("letter-title").textContent = letter.title;
@@ -250,7 +256,7 @@
 
   function setLoading(loading) {
     submit.disabled = loading;
-    submit.querySelector("span").textContent = loading ? "복호화하는 중…" : "편지 복호화하기";
+    submit.querySelector("span").textContent = loading ? "확인하는 중…" : "편지 확인하기";
   }
 
   [nameInput, codeInput].forEach(function (input) {
@@ -283,6 +289,10 @@
       if (!entry) throw new Error("letter not found");
 
       var letter = await decryptLetter(entry, codeInput.value, data.iterations);
+      if (shouldDelayLetter(letter)) {
+        window.location.assign(releaseUrl);
+        return;
+      }
       showLetter(letter);
     } catch (error) {
       showError("이름 또는 개인 코드가 맞지 않습니다. 전달받은 내용을 다시 확인해 주세요.");
@@ -297,7 +307,7 @@
     gate.hidden = false;
     codeInput.value = "";
     document.getElementById("letter-content").textContent = "";
-    status.innerHTML = '<i aria-hidden="true"></i> ENCRYPTED LETTERS';
+    status.innerHTML = '<i aria-hidden="true"></i> PRIVATE LETTERS';
     document.body.classList.add("thanks-page--gate");
     document.body.classList.remove("thanks-page--letter");
     nameInput.focus();

@@ -44,6 +44,17 @@ GitHub에서 이 저장소를 열고 다음 순서로 이동합니다.
 - 작성이 끝나면 `_private_letters/thanks-letters.local.md`의 전체 내용을 GitHub Secret `THANKS_LETTERS_MD`에 복사합니다.
 - 이후 Actions에서 `Deploy encrypted Jekyll site to Pages`를 수동 실행하거나 `master`에 push하면 반영됩니다.
 
+
+## 테스트용 편지
+
+2026년 7월 10일 00:00(KST) 전에는 기본적으로 실제 편지를 열람할 수 없습니다. 테스트용으로 바로 열어볼 편지만 front matter에 다음 값을 추가합니다.
+
+```yaml
+test: true
+```
+
+이 값이 없는 편지는 이름과 개인 코드가 맞아도 `/thanks_for_rcv/not-yet/` 안내 페이지로 이동합니다.
+
 ## 저장 후 배포
 
 `master` 브랜치에 push하면 `.github/workflows/build.yml`이 다음 작업을 자동 실행합니다.

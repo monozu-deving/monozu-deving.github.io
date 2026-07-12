@@ -8,12 +8,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#050505">
   <meta name="robots" content="noindex, nofollow">
-  <title>{{ page.title | default: "" }} · {{ site.name }}</title>
+  <title>{{ page.title | default: "Thanks_For_RCV" }} · {{ site.name }}</title>
   <meta name="description" content="{{ page.description | default: '이름과 개인 코드로 편지를 확인합니다.' }}">
   <link rel="stylesheet" href="{{ '/assets/css/thanks-for-rcv.css' | relative_url }}">
 </head>
 
-<body class="thanks-page thanks-page--gate" data-letter-index="{{ '/assets/data/thanks-letters.json' | relative_url }}">
+<body class="thanks-page thanks-page--gate" data-letter-index="{{ '/assets/data/thanks-letters.json' | relative_url }}" data-release-url="{{ '/thanks_for_rcv/not-yet/' | relative_url }}" data-release-at="2026-07-09T15:00:00.000Z">
   <div class="thanks-grid" aria-hidden="true"></div>
 
   <header class="thanks-header">
@@ -27,7 +27,7 @@
   <main class="thanks-gate" id="letter-gate">
     <section class="thanks-intro" aria-labelledby="thanks-title">
       <p class="thanks-kicker">PRIVATE LETTER</p>
-      <h1 id="thanks-title">편지<br><em>확인하기</em></h1>
+      <h1 id="thanks-title">RCV<br><em>Thanks to Everyone</em></h1>
       <div class="thanks-description">
         {{ content }}
       </div>

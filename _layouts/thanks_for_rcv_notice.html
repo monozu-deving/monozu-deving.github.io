@@ -1,0 +1,50 @@
+---
+---
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#050505">
+  <meta name="robots" content="noindex, nofollow">
+  <title>{{ page.title | default: "Thanks_For_RCV" }} · {{ site.name }}</title>
+  <meta name="description" content="{{ page.description | default: '7월 10일 이후 열람 안내' }}">
+  <link rel="stylesheet" href="{{ '/assets/css/thanks-for-rcv.css' | relative_url }}">
+</head>
+
+<body class="thanks-page thanks-page--notice">
+  <div class="thanks-grid" aria-hidden="true"></div>
+
+  <header class="thanks-header">
+    <a class="thanks-brand" href="{{ '/' | relative_url }}" aria-label="Monozu 홈으로">
+      <span class="thanks-brand__mark" aria-hidden="true">M</span>
+      <span>MONOZU</span>
+    </a>
+    <span class="thanks-status"><i aria-hidden="true"></i> PRIVATE LETTERS</span>
+  </header>
+
+  <main class="letter-shell">
+    <article class="letter-card thanks-notice-card">
+      <header class="letter-card__header">
+        <p class="letter-to">THANKS_FOR_RCV</p>
+        <h1>{{ page.title | default: "아직 열람할 수 없습니다" }}</h1>
+      </header>
+
+      <div class="letter-content">
+        {{ content }}
+      </div>
+
+      <p class="thanks-notice-actions">
+        <a href="{{ '/thanks_for_rcv/' | relative_url }}">입력 페이지로 돌아가기</a>
+      </p>
+    </article>
+  </main>
+
+  <footer class="thanks-footer">
+    <span>Private page.</span>
+    <span>CLIENT-SIDE ENCRYPTED <i aria-hidden="true"></i> {{ site.time | date: "%Y" }}</span>
+  </footer>
+</body>
+
+</html>

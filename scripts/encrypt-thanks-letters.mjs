@@ -81,6 +81,10 @@ function normalizeName(value) {
     .replace(/[\s\-_.]/g, "");
 }
 
+function isTruthy(value) {
+  return value === true || String(value).trim().toLowerCase() === "true";
+}
+
 function lookupHash(value, code) {
   return createHmac("sha256", code).update(normalizeName(value), "utf8").digest("hex");
 }
@@ -97,6 +101,7 @@ function encryptLetter(parsed) {
     recipient: parsed.metadata.recipient,
     from: parsed.metadata.from,
     date: String(parsed.metadata.date),
+    test: isTruthy(parsed.metadata.test),
     body: parsed.body
   });
   const encrypted = Buffer.concat([

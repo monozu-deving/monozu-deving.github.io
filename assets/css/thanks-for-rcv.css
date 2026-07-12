@@ -122,7 +122,7 @@ a {
   width: min(1060px, calc(100% - 48px));
   min-height: calc(100vh - 196px);
   margin: 0 auto;
-  grid-template-columns: minmax(0, 1fr) 340px;
+  grid-template-columns: minmax(0, 1fr) 400px;
   gap: 8vw;
   align-items: center;
   padding: 72px 0;
@@ -292,10 +292,11 @@ a {
 
 .thanks-seal {
   display: block;
-  width: min(340px, 28vw);
+  width: min(400px, 34vw);
+  aspect-ratio: 1;
   overflow: hidden;
   border: 1px solid var(--line);
-  border-radius: 18px;
+  border-radius: 50%;
   background: var(--surface);
   box-shadow: 0 28px 80px rgba(0, 0, 0, 0.28);
 }
@@ -303,8 +304,8 @@ a {
 .thanks-seal img {
   display: block;
   width: 100%;
-  height: auto;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
 }
 
 .thanks-footer {
@@ -326,6 +327,27 @@ a {
   margin: 0 5px;
 }
 
+
+.thanks-notice-actions {
+  margin: 18px 0 0;
+}
+
+.thanks-notice-actions a {
+  display: inline-flex;
+  min-height: 42px;
+  padding: 0 16px;
+  align-items: center;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  color: var(--text);
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.thanks-notice-actions a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
 /* Letter */
 .letter-shell {
   width: min(880px, calc(100% - 48px));

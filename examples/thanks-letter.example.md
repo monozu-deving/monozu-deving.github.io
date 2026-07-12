@@ -7,6 +7,7 @@ aliases:
 from: "Monozu"
 date: 2026-07-07
 code: "REPLACE-WITH-RANDOM-24-CHARS-01"
+test: true
 ---
 
 연구님께,
