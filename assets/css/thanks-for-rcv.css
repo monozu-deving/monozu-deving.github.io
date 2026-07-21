@@ -167,6 +167,59 @@ a {
   margin: 0;
 }
 
+
+.thanks-reply {
+  margin-top: 22px;
+}
+
+.thanks-reply > p {
+  margin-bottom: 12px;
+  color: var(--muted);
+  font-size: 0.86rem;
+}
+
+.thanks-reply__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.thanks-reply__item {
+  display: inline-flex;
+  min-height: 42px;
+  padding: 0 14px;
+  align-items: center;
+  gap: 9px;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: rgba(14, 14, 15, 0.88);
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 650;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.thanks-reply__item svg {
+  width: 19px;
+  height: 19px;
+  flex: 0 0 auto;
+}
+
+.thanks-reply__item--instagram {
+  transition: border-color 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.thanks-reply__item--instagram:hover {
+  border-color: #e1306c;
+  color: #ff6b9a;
+  transform: translateY(-1px);
+}
+
+.thanks-reply__item--instagram:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
 .thanks-form {
   max-width: 650px;
   margin-top: 46px;
