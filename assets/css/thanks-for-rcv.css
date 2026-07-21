@@ -169,54 +169,45 @@ a {
 
 
 .thanks-reply {
-  margin-top: 22px;
-}
-
-.thanks-reply > p {
-  margin-bottom: 12px;
+  margin: 22px 0 0;
   color: var(--muted);
-  font-size: 0.86rem;
+  font-size: 0.9rem;
+  line-height: 2.15;
 }
 
-.thanks-reply__links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.thanks-reply__item {
+.thanks-reply__channel {
   display: inline-flex;
-  min-height: 42px;
-  padding: 0 14px;
+  margin: 0 2px;
+  padding: 2px 7px;
   align-items: center;
-  gap: 9px;
+  gap: 6px;
   border: 1px solid var(--line-strong);
-  border-radius: 8px;
+  border-radius: 6px;
   background: rgba(14, 14, 15, 0.88);
   color: var(--text);
-  font-size: 0.82rem;
   font-weight: 650;
-  line-height: 1;
+  line-height: 1.5;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.thanks-reply__channel img {
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+.thanks-reply__channel--instagram {
   text-decoration: none;
+  transition: border-color 160ms ease, color 160ms ease;
 }
 
-.thanks-reply__item svg {
-  width: 19px;
-  height: 19px;
-  flex: 0 0 auto;
-}
-
-.thanks-reply__item--instagram {
-  transition: border-color 160ms ease, color 160ms ease, transform 160ms ease;
-}
-
-.thanks-reply__item--instagram:hover {
-  border-color: #e1306c;
+.thanks-reply__channel--instagram:hover {
+  border-color: #e4405f;
   color: #ff6b9a;
-  transform: translateY(-1px);
 }
 
-.thanks-reply__item--instagram:focus-visible {
+.thanks-reply__channel--instagram:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
