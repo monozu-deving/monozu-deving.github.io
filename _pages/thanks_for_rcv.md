@@ -19,6 +19,6 @@ RCV의 여러분들에게 김기현이 남긴 편지입니다.
   </span>이나
   <a class="thanks-reply__channel thanks-reply__channel--instagram" href="https://www.instagram.com/airo._.hyeon" target="_blank" rel="noopener noreferrer">
     <img src="https://cdn.simpleicons.org/instagram/E4405F?viewbox=auto&amp;size=18" alt="" aria-hidden="true">
-    Instagram
+    airo._.hyeon
   </a>으로 부탁드립니다.
 </p>
