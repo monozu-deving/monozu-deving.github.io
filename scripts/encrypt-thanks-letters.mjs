@@ -123,7 +123,7 @@ async function main() {
   if (secretBundle) {
     const sources = secretBundle
       .replace(/\r\n?/g, "\n")
-      .split(/\n---8<---LETTER---8<---\n/g)
+      .split(/\n---8<---LETTER---8<---(?:\n|$)/g)
       .map((source) => source.trim())
       .filter(Boolean);
 
