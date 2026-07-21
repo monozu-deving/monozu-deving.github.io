@@ -24,6 +24,22 @@ GitHub에서 이 저장소를 열고 다음 순서로 이동합니다.
 
 각 사람의 `code`는 반드시 서로 다른 24자 이상의 무작위 문자열로 교체합니다. 예시의 `REPLACE-WITH-RANDOM-24-CHARS-01` 같은 값이 남아 있으면 GitHub Actions 빌드가 실패합니다.
 
+
+## 개인 코드 자동 생성
+
+npm 설치 없이 저장소 루트에서 다음 명령을 실행하면 암호학적으로 안전한 24자 코드를 생성합니다.
+
+```powershell
+node scripts/generate-letter-code.mjs
+```
+
+원하는 길이를 인자로 전달할 수도 있습니다. 최소 길이는 24자입니다.
+
+```powershell
+node scripts/generate-letter-code.mjs 32
+```
+
+출력된 코드를 편지의 `code` 값에 붙여 넣고, 편지를 받을 사람에게 별도 메시지로 전달합니다.
 ## 여러 명 저장하기
 
 같은 `THANKS_LETTERS_MD` Secret 안에서 각 사람의 Markdown 편지 사이에 다음 구분선을 한 줄로 넣습니다.

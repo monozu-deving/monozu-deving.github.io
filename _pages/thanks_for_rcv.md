@@ -14,7 +14,7 @@ RCV의 여러분들에게 김기현이 남긴 편지입니다.
 <p class="thanks-reply">
   답장은
   <span class="thanks-reply__channel">
-    <span class="thanks-reply__emoji" aria-hidden="true">💬</span>
+    <img src="{{ '/assets/images/thanks-for-rcv/slack.png' | relative_url }}" alt="" aria-hidden="true" loading="lazy" decoding="async">
     Slack
   </span>이나
   <a class="thanks-reply__channel thanks-reply__channel--instagram" href="https://www.instagram.com/airo._.hyeon" target="_blank" rel="noopener noreferrer">
