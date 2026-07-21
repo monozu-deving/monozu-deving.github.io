@@ -226,8 +226,6 @@
 
   function showLetter(letter) {
     document.getElementById("letter-recipient").textContent = "TO. " + letter.recipient;
-    document.getElementById("letter-title").textContent = letter.title;
-    document.getElementById("letter-date").textContent = "PRIVATE NOTE / " + letter.date;
     document.getElementById("letter-content").innerHTML = renderMarkdown(letter.body);
     document.getElementById("letter-from").textContent = letter.from;
 
@@ -237,7 +235,7 @@
     document.body.classList.remove("thanks-page--gate");
     document.body.classList.add("thanks-page--letter");
     window.scrollTo({ top: 0, behavior: "smooth" });
-    document.getElementById("letter-title").focus({ preventScroll: true });
+    document.getElementById("letter-card").focus({ preventScroll: true });
   }
 
   function showError(message) {

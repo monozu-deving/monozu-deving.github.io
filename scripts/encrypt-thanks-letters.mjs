@@ -57,7 +57,7 @@ function parseLetter(source, filename) {
     }
   }
 
-  const required = ["title", "recipient", "code", "from", "date"];
+  const required = ["recipient", "code", "from"];
   for (const key of required) {
     if (!metadata[key]) throw new Error(`${filename}: '${key}' 값이 필요합니다.`);
   }
@@ -97,10 +97,8 @@ function encryptLetter(parsed) {
   cipher.setAAD(additionalData);
 
   const payload = JSON.stringify({
-    title: parsed.metadata.title,
     recipient: parsed.metadata.recipient,
     from: parsed.metadata.from,
-    date: String(parsed.metadata.date),
     test: isTruthy(parsed.metadata.test),
     body: parsed.body
   });
@@ -109,10 +107,8 @@ function encryptLetter(parsed) {
     cipher.final(),
     cipher.getAuthTag()
   ]);
-  const names = [parsed.metadata.recipient].concat(parsed.metadata.aliases || []);
-
   return {
-    lookups: [...new Set(names.map((name) => lookupHash(name, parsed.code)))],
+    lookups: [lookupHash(parsed.metadata.recipient, parsed.code)],
     salt: salt.toString("base64"),
     iv: iv.toString("base64"),
     ciphertext: encrypted.toString("base64")

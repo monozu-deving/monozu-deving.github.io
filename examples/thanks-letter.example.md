@@ -1,11 +1,6 @@
 ---
-title: "처음 적응할 때 도와준 일"
 recipient: "김연구"
-aliases:
-  - "연구"
-  - "김 연구"
 from: "Monozu"
-date: 2026-07-07
 code: "REPLACE-WITH-RANDOM-24-CHARS-01"
 test: true
 ---
@@ -21,13 +16,8 @@ test: true
 ---8<---LETTER---8<---
 
 ---
-title: "데이터 정리 같이 봐준 일"
 recipient: "박데이터"
-aliases:
-  - "데이터"
-  - "박 데이터"
 from: "Monozu"
-date: 2026-07-07
 code: "REPLACE-WITH-RANDOM-24-CHARS-02"
 ---
 
@@ -46,13 +36,8 @@ code: "REPLACE-WITH-RANDOM-24-CHARS-02"
 ---8<---LETTER---8<---
 
 ---
-title: "실험 일정 도와준 일"
 recipient: "이실험"
-aliases:
-  - "실험"
-  - "이 실험"
 from: "Monozu"
-date: 2026-07-07
 code: "REPLACE-WITH-RANDOM-24-CHARS-03"
 ---
 

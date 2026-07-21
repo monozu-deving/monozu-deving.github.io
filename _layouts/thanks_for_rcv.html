@@ -70,13 +70,11 @@
   <main class="letter-shell" id="letter-view" hidden>
     <nav class="letter-nav" aria-label="편지 탐색">
       <button id="letter-close" type="button"><span aria-hidden="true">←</span> 닫기</button>
-      <span id="letter-date"></span>
     </nav>
 
-    <article class="letter-card">
+    <article class="letter-card" id="letter-card" tabindex="-1">
       <header class="letter-card__header">
         <p class="letter-to" id="letter-recipient"></p>
-        <h1 id="letter-title" tabindex="-1"></h1>
       </header>
 
       <div class="letter-content" id="letter-content"></div>
