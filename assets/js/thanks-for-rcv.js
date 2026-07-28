@@ -8,6 +8,7 @@
   var result = document.getElementById("letter-result");
   var gate = document.getElementById("letter-gate");
   var view = document.getElementById("letter-view");
+  var video = document.getElementById("thanks-video");
   var close = document.getElementById("letter-close");
   var status = document.getElementById("letter-status");
   var indexUrl = document.body.dataset.letterIndex;
@@ -230,6 +231,7 @@
     document.getElementById("letter-from").textContent = letter.from;
 
     gate.hidden = true;
+    if (video) video.hidden = true;
     view.hidden = false;
     status.innerHTML = '<i aria-hidden="true"></i> LETTER DECRYPTED';
     document.body.classList.remove("thanks-page--gate");
@@ -303,6 +305,7 @@
   close.addEventListener("click", function () {
     view.hidden = true;
     gate.hidden = false;
+    if (video) video.hidden = false;
     codeInput.value = "";
     document.getElementById("letter-content").textContent = "";
     status.innerHTML = '<i aria-hidden="true"></i> PRIVATE LETTERS';
