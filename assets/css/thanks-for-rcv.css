@@ -463,6 +463,10 @@ a {
   letter-spacing: 0.15em;
 }
 
+#letter-view .letter-to {
+  font-size: 0.82rem;
+}
+
 .letter-card h1 {
   max-width: 650px;
   margin: 0;
@@ -491,6 +495,10 @@ a {
   font-size: clamp(1rem, 2vw, 1.08rem);
   line-height: 2;
   word-break: keep-all;
+}
+
+#letter-view .letter-content {
+  font-size: clamp(1.08rem, calc(2vw + 1pt), 1.16rem);
 }
 
 .letter-content p {
