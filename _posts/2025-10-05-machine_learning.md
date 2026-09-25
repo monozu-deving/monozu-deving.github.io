@@ -1,6 +1,6 @@
 ---
 title: "Machine Learning"
-published: false
+published: true
 emoji: "🤖"
 layout: single
 toc: true              # ✅ 목차 활성화
